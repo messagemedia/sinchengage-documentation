@@ -15,7 +15,7 @@ info:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
   x-logo:
-    url: 'https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic2luY2hcL2ZpbGVcL0xYSFMxOTZQSlJpbjJLdFcxclc1LnBuZyJ9:sinch:G873APD1uAA-wfyymEBENuKEj4S5FAt8gk6_fSrqIbM?width=2400'
+    url: '/logo.svg'
 
   # Describe your API here, you can use GFM (https://guides.github.com/features/mastering-markdown) here
   description: |
