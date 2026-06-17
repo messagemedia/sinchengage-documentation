@@ -1,4 +1,4 @@
-# MessageMedia OpenAPI Specification
+# Sinch Engage OpenAPI Specification
 
 
 ## Working on specification
@@ -19,6 +19,6 @@ Bundles the spec and prepares web_deploy folder with static assets.
 Validates the spec.
 
 #### `npm run gh-pages`
-Deploys docs to GitHub Pages. You don't need to run it manually if you have Travis CI configured.
+Deploys docs to GitHub Pages. You don't need to run it manually if you have CI configured.
 Please see this page for publish progress
-https://github.com/sinchengage/documentation/actions
+https://github.com/messagemedia/sinchengage-documentation/actions
