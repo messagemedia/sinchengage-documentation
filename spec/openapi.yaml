@@ -40,7 +40,7 @@ info:
       
     To access the API, an API key and secret are required.
       
-    [Sign up for a developer account here to get access](https://developers.sinch.com/register/)
+    [Sign up for a developer account here to get access](https://developers.sinch.com/)
 
     # Features
     ###  De-Duplication 
@@ -288,7 +288,7 @@ tags:
       
       * Replies - Messages sent from a handset to an application. These messages are typically a reply to a previously sent message.
       
-      ![Message Flow](https://i.imgur.com/jJeHwf5.png)
+      ![Message Flow](./message-flow.png)
   - name: Source Address
     description: |
       The source address API provides several endpoints for you to request an SMS sender ID and track its approval status.
@@ -1468,7 +1468,7 @@ paths:
               - If your account does not have a number, your message may be sent using our shared number pool (in certain countries only)
             - `Alpha tag:` In some countries (AU, GB, some others), you may be able to send using an alpha tag - text that represents your brand of business.  Before using an alpha tag, you must register it in the Numbers section of the web portal.
             - `Other numbers:` You may use numbers that you own as the source number, but you must register them in the Numbers section of the web portal to confirm  you have a right to use the number.
-          If you need to register a large number of source numbers/sender IDs, consider using our [Source Address API](https://sinchonline.github.io/documentation/#tag/Source-Address)
+          If you need to register a large number of source numbers/sender IDs, consider using our [Source Address API](#tag/Source-Address)
           
           ⚠️ If you specify a source_number that is not registered to your account, the message may fail to send, or may be sent with an alternative number.
 
