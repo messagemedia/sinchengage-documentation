@@ -15,7 +15,7 @@ info:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
   x-logo:
-    url: '/logo.svg'
+    url: './logo.svg'
 
   # Describe your API here, you can use GFM (https://guides.github.com/features/mastering-markdown) here
   description: |
@@ -89,7 +89,7 @@ tags:
 
       POST /v1/messages HTTP/1.1
 
-      Host: api.sinch.com
+      Host: eu.app.api.sinch.com
 
       Accept: application/json
 
@@ -177,7 +177,7 @@ tags:
 
       POST /v1/messages HTTP/1.1
 
-      Host: api.sinch.com
+      Host: eu.app.api.sinch.com
 
       Accept: application/json
 
@@ -211,7 +211,7 @@ tags:
 
       GET /v1/messages/404b941b-2a29-469f-b114-9ea3e16bbe18 HTTP/1.1
 
-      Host: api.sinch.com
+      Host: eu.app.api.sinch.com
 
       Accept: application/json
 
@@ -262,7 +262,7 @@ tags:
       
         ```plain
         POST /v1/messages HTTP/1.1
-        Host: api.sinch.com
+        Host: eu.app.api.sinch.com
         Accept: application/json
         Content-Type: application/json
         Authorization: Basic dGhpc2lzYWtleTp0aGlzaXNhc2VjcmV0Zm9ybW1iYXNpY2F1dGhyZXN0YXBp
@@ -352,7 +352,7 @@ tags:
         **Example request with Request a Sender Address from a sub-account**
         ```plain
         POST /v1/messaging/numbers/sender_address/requests HTTP/1.1
-        Host: api.sinch.com
+        Host: eu.app.api.sinch.com
         Accept: application/json
         Content-Type: application/json
         Authorization: Basic dGhpc2lzYWtleTp0aGlzaXNhc2VjcmV0Zm9ybW1iYXNpY2F1dGhyZXN0YXBp
