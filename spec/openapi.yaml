@@ -7,7 +7,7 @@ info:
   # It can be any string but it is better to use semantic versioning: http://semver.org/
   # Warning: OpenAPI require version to be string, but without quotation YAML can recognize it as number.
 
-  title: Sinch # Replace with your API title
+  title: Sinch Engage
   # Keep it simple. Don't add "API" or version at the end of the string.
 
   termsOfService: 'https://www.sinch.com/legal/terms-and-conditions/' # [Optional] Replace with an URL to your ToS
@@ -398,7 +398,7 @@ tags:
         "original_text":"Hello world!",
         "message_id":"389dc1a8-62a4-4110-ba61-af94806c006f",
         "vendor_account_id":{
-          "vendor_id":"SinchEngage",
+          "vendor_id":"SinchEU",
           "account_id":"MyAccount"
         },
         "error_code":"220",
