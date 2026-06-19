@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - feature-MAPI-2218-update-customer-facing-api-documentation
+      - feature-**
   pull_request:
     branches:
       - main
