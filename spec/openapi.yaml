@@ -443,7 +443,7 @@ tags:
 
       * **Message ID**: ID of the original message.
 
-      * **Vendor Account ID**: The account used to submit the original message. The vendor will always be `SinchEU`
+      * **Vendor Account ID**: The account used to submit the original message.
 
       * **Error Code**: A status code which provides additional information about the message status:
 
