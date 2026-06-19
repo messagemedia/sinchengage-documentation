@@ -34,13 +34,11 @@ info:
     
     For APAC instance, use https://au.app.api.sinch.com
     
-    For US instance, use https://us.app.api.sinch.com
-    
     # Credentials
       
     To access the API, an API key and secret are required.
       
-    [Sign up for a developer account here to get access](https://developers.sinch.com/)
+    [Sign up for a developer account here to get access](https://app.sinch.com/login)
 
     # Features
     ###  De-Duplication 
@@ -720,8 +718,6 @@ servers:
     description: 'EU instance'
   - url: 'https://au.app.api.sinch.com/'
     description: 'APAC instance'
-  - url: 'https://us.app.api.sinch.com/'
-    description: 'US instance'
 
 # Holds the relative paths to the individual endpoints. The path is appended to the
 # basePath in order to construct the full URL.
