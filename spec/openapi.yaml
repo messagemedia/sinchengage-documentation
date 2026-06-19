@@ -38,7 +38,7 @@ info:
       
     To access the API, an API key and secret are required.
       
-    [Sign up for a developer account here to get access](https://app.sinch.com/login)
+    [Sign up for a developer account here to get access](https://support.app.sinch.com/hc/en-us/categories/10516535548943-Sinch-Engage-Developer-Guides)
 
     # Features
     ###  De-Duplication 
@@ -544,7 +544,7 @@ tags:
       Detailed reports list all messages and the details of each message sent or received in a specified time period. Summary reports allow inbound and outbound message data to be aggregated on a number of dimensions.
   - name: Short Trackable Links Reports
     description: |
-      Short Trackable Links is a feature available to [Messaging API](https://developers.sinch.com/code/messages-api-documentation/) users whereby it automatically and seamlessly shortens any URL to just 22 characters. Every shortened URL is unique to each recipient.
+      Short Trackable Links is a feature available to [Messaging API](https://support.app.sinch.com/hc/en-us/categories/10516535548943-Sinch-Engage-Developer-Guides) users whereby it automatically and seamlessly shortens any URL to just 22 characters. Every shortened URL is unique to each recipient.
 
       The reporting API has endpoints specific to 
       this feature, allowing users to obtain details regarding 
@@ -552,7 +552,7 @@ tags:
 
       To enable this feature on your account, contact your account manager or contact support on [support@app.sinch.com](support@app.sinch.com).
 
-      To learn more about the benefits of the Short Trackable Links feature, [visit our feature page](https://sinch.com/au/feature/short-urls/).
+      To learn more about the benefits of the Short Trackable Links feature, [visit our feature page](https://support.app.sinch.com/hc/en-us/articles/10525004171919-Short-Trackable-Links-URL-shortener).
   - name: Webhooks Management
     description: >-
       Webhooks Management API allows you to manage your webhooks configuration. You can subscribe to one or several events, retrieve the webhooks, update them or even delete them if needed.
