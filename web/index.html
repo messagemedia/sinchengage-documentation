@@ -15,6 +15,13 @@
         margin: 0;
         padding: 0;
       }
+      /* Ensure the ReDoc logo uses the requested padding and width */
+      img[src*="logo.png"] {
+        padding: 10px;
+        width: 95%;
+        box-sizing: border-box;
+        height: auto;
+      }
     </style>
     {{redocHead}}
   </head>
