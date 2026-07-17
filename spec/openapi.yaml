@@ -34,6 +34,8 @@ info:
     
     For APAC instance, use https://au.app.api.sinch.com
     
+    For US instance, use https://us.app.api.sinch.com
+    
     # Credentials
       
     To access the API, an API key and secret are required.
@@ -87,7 +89,7 @@ tags:
 
       POST /v1/messages HTTP/1.1
 
-      Host: eu.app.api.sinch.com
+      Host: au.app.api.sinch.com
 
       Accept: application/json
 
@@ -175,7 +177,7 @@ tags:
 
       POST /v1/messages HTTP/1.1
 
-      Host: eu.app.api.sinch.com
+      Host: au.app.api.sinch.com
 
       Accept: application/json
 
@@ -209,7 +211,7 @@ tags:
 
       GET /v1/messages/404b941b-2a29-469f-b114-9ea3e16bbe18 HTTP/1.1
 
-      Host: eu.app.api.sinch.com
+      Host: au.app.api.sinch.com
 
       Accept: application/json
 
@@ -259,7 +261,7 @@ tags:
       
         ```plain
         POST /v1/messages HTTP/1.1
-        Host: eu.app.api.sinch.com
+        Host: au.app.api.sinch.com
         Accept: application/json
         Content-Type: application/json
         Authorization: Basic dGhpc2lzYWtleTp0aGlzaXNhc2VjcmV0Zm9ybW1iYXNpY2F1dGhyZXN0YXBp
@@ -349,7 +351,7 @@ tags:
         **Example request with Request a Sender Address from a sub-account**
         ```plain
         POST /v1/messaging/numbers/sender_address/requests HTTP/1.1
-        Host: eu.app.api.sinch.com
+        Host: au.app.api.sinch.com
         Accept: application/json
         Content-Type: application/json
         Authorization: Basic dGhpc2lzYWtleTp0aGlzaXNhc2VjcmV0Zm9ybW1iYXNpY2F1dGhyZXN0YXBp
@@ -395,7 +397,7 @@ tags:
         "original_text":"Hello world!",
         "message_id":"389dc1a8-62a4-4110-ba61-af94806c006f",
         "vendor_account_id":{
-          "vendor_id":"SinchEU",
+          "vendor_id":"MyVendor",
           "account_id":"MyAccount"
         },
         "error_code":"220",
@@ -440,7 +442,7 @@ tags:
 
       * **Message ID**: ID of the original message.
 
-      * **Vendor Account ID**: The account used to submit the original message. The vendor will always be `SinchEU`
+      * **Vendor Account ID**: The account used to submit the original message.
 
       * **Error Code**: A status code which provides additional information about the message status:
 
@@ -715,6 +717,8 @@ servers:
     description: 'EU instance'
   - url: 'https://au.app.api.sinch.com/'
     description: 'APAC instance'
+  - url: 'https://us.app.api.sinch.com/'
+    description: 'US instance'
 
 # Holds the relative paths to the individual endpoints. The path is appended to the
 # basePath in order to construct the full URL.
@@ -2223,7 +2227,7 @@ paths:
                     "original_text": "My first message!",
                     "message_id": "d781dcab-d9d8-4fb2-9e03-872f07ae94ba",
                     "vendor_account_id": {
-                        "vendor_id": "SinchEU",
+                        "vendor_id": "MyVendor",
                         "account_id": "MyAccount"
                     },
                     "metadata": {
@@ -2243,7 +2247,7 @@ paths:
                     "original_text": "My second message!",
                     "message_id": "fbb3b3f5-b702-4d8b-ab44-65b2ee39a281",
                     "vendor_account_id": {
-                        "vendor_id": "SinchEU",
+                        "vendor_id": "MyVendor",
                         "account_id": "MyAccount"
                     },
                     "metadata": {
@@ -2321,7 +2325,7 @@ paths:
                     original_text: My first message!
                     message_id: d781dcab-d9d8-4fb2-9e03-872f07ae94ba
                     vendor_account_id:
-                      vendor_id: SinchEU
+                      vendor_id: MyVendor
                       account_id: MyAccount
                     metadata:
                       key1: value1
@@ -2336,7 +2340,7 @@ paths:
                     original_text: My second message!
                     message_id: fbb3b3f5-b702-4d8b-ab44-65b2ee39a281
                     vendor_account_id:
-                      vendor_id: SinchEU
+                      vendor_id: MyVendor
                       account_id: MyAccount
                     metadata:
                       key1: value1
@@ -2481,7 +2485,7 @@ paths:
                     "destination_number": "+61491570156",
                     "source_number": "+61491570157",
                     "vendor_account_id": {
-                        "vendor_id": "SinchEU",
+                        "vendor_id": "MyVendor",
                         "account_id": "MyAccount"
                     },
                     "content": "My first reply!"
@@ -2498,7 +2502,7 @@ paths:
                     "destination_number": "+61491570157",
                     "source_number": "+61491570158",
                     "vendor_account_id": {
-                        "vendor_id": "SinchEU",
+                        "vendor_id": "MyVendor",
                         "account_id": "MyAccount"
                     },
                     "content": "My second reply!"
@@ -2577,7 +2581,7 @@ paths:
                     destination_number: '+61491570156'
                     source_number: '+61491570157'
                     vendor_account_id:
-                      vendor_id: SinchEU
+                      vendor_id: MyVendor
                       account_id: MyAccount
                     content: My first reply!
                   - metadata:
@@ -2590,7 +2594,7 @@ paths:
                     destination_number: '+61491570157'
                     source_number: '+61491570158'
                     vendor_account_id:
-                      vendor_id: SinchEU
+                      vendor_id: MyVendor
                       account_id: MyAccount
                     content: My second reply!
         '403':
@@ -7065,7 +7069,7 @@ components:
             original_text: My first message!
             message_id: d781dcab-d9d8-4fb2-9e03-872f07ae94ba
             vendor_account_id:
-              vendor_id: SinchEU
+              vendor_id: MyVendor
               account_id: MyAccount
             metadata:
               key1: value1
@@ -7081,7 +7085,7 @@ components:
             original_text: My second message!
             message_id: fbb3b3f5-b702-4d8b-ab44-65b2ee39a281
             vendor_account_id:
-              vendor_id: SinchEU
+              vendor_id: MyVendor
               account_id: MyAccount
             metadata:
               key1: value1
@@ -7110,7 +7114,7 @@ components:
       properties:
         vendor_id:
           type: string
-          example: SinchEU
+          example: MyVendor
         account_id:
           type: string
           description: The account used to submit the original message.
@@ -7138,7 +7142,7 @@ components:
             destination_number: '+61491570156'
             source_number: '+61491570157'
             vendor_account_id:
-              vendor_id: SinchEU
+              vendor_id: MyVendor
               account_id: MyAccount
             content: My first reply!
           - metadata:
@@ -7151,7 +7155,7 @@ components:
             destination_number: '+61491570157'
             source_number: '+61491570158'
             vendor_account_id:
-              vendor_id: SinchEU
+              vendor_id: MyVendor
               account_id: MyAccount
             content: My second reply!
     SourceNumberType:
