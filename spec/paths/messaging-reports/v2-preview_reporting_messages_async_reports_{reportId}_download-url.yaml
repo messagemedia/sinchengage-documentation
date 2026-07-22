@@ -1,0 +1,34 @@
+get:
+  security:
+    - basic_auth: []
+    - hmac_auth: []
+    - bearer_auth: []
+  tags:
+    - Messaging Reports
+  summary: Get async report download URL
+  description: >-
+    Returns a temporary pre-signed URL for downloading the generated report. The
+    URL allows customers to securely download the report file directly using the
+    provided reportId.
+  operationId: GetAsyncReportDownloadUrl
+  parameters:
+    - name: reportId
+      in: path
+      description: The ID of the report to download.
+      required: true
+      style: simple
+      schema:
+        type: string
+        format: uuid
+        example: 51f0097f-90b2-4a59-ad88-a0fd93abaa82
+  responses:
+    '200':
+      description: A pre-signed URL for downloading the report.
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/messaging-reports/presignedurlresponse.yaml
+    '404':
+      description: Report not found.
+  deprecated: false

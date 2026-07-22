@@ -1,0 +1,134 @@
+get:
+  security:
+    - basic_auth: []
+    - hmac_auth: []
+  tags:
+    - Contacts
+  summary: Get a single contact
+  operationId: getContactById
+  parameters:
+    - name: contactId
+      in: path
+      description: Contact id in UUID format
+      required: true
+      schema:
+        type: string
+        format: uuid
+        example: 3fa85f64-5717-4562-b3fc-2c963f66afa6
+  responses:
+    '200':
+      description: Returns a single contact
+      content:
+        '*/*':
+          schema:
+            $ref: ../../components/schemas/contacts/ContactData.yaml
+    '400':
+      $ref: ../../components/responses/BadRequest.yaml
+    '401':
+      $ref: ../../components/responses/Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/NotFound.yaml
+    '409':
+      $ref: ../../components/responses/Conflict.yaml
+    '500':
+      $ref: ../../components/responses/InternalServerError.yaml
+    '501':
+      $ref: ../../components/responses/RequestNotRecognised.yaml
+    '502':
+      $ref: ../../components/responses/BadGateway.yaml
+    '503':
+      $ref: ../../components/responses/ServerUnavailable.yaml
+    '504':
+      $ref: ../../components/responses/GatewayTimeout.yaml
+delete:
+  security:
+    - basic_auth: []
+    - hmac_auth: []
+  tags:
+    - Contacts
+  summary: Delete a contact
+  operationId: deleteContactById
+  parameters:
+    - name: contactId
+      in: path
+      description: Contact id in UUID format
+      required: true
+      schema:
+        type: string
+        format: uuid
+        example: 3fa85f64-5717-4562-b3fc-2c963f66afa6
+  responses:
+    '204':
+      description: Contact is deleted
+    '400':
+      $ref: ../../components/responses/BadRequest.yaml
+    '401':
+      $ref: ../../components/responses/Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/NotFound.yaml
+    '409':
+      $ref: ../../components/responses/Conflict.yaml
+    '500':
+      $ref: ../../components/responses/InternalServerError.yaml
+    '501':
+      $ref: ../../components/responses/RequestNotRecognised.yaml
+    '502':
+      $ref: ../../components/responses/BadGateway.yaml
+    '503':
+      $ref: ../../components/responses/ServerUnavailable.yaml
+    '504':
+      $ref: ../../components/responses/GatewayTimeout.yaml
+patch:
+  security:
+    - basic_auth: []
+    - hmac_auth: []
+  tags:
+    - Contacts
+  summary: Update a contact
+  operationId: updateContact
+  parameters:
+    - name: contactId
+      in: path
+      description: Contact id in UUID format
+      required: true
+      schema:
+        type: string
+        format: uuid
+        example: 3fa85f64-5717-4562-b3fc-2c963f66afa6
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/contacts/UpdateContactRequest.yaml
+    required: true
+  responses:
+    '200':
+      description: Contact is updated
+      content:
+        '*/*':
+          schema:
+            $ref: ../../components/schemas/contacts/ContactData.yaml
+    '400':
+      $ref: ../../components/responses/BadRequest.yaml
+    '401':
+      $ref: ../../components/responses/Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/NotFound.yaml
+    '409':
+      $ref: ../../components/responses/Conflict.yaml
+    '500':
+      $ref: ../../components/responses/InternalServerError.yaml
+    '501':
+      $ref: ../../components/responses/RequestNotRecognised.yaml
+    '502':
+      $ref: ../../components/responses/BadGateway.yaml
+    '503':
+      $ref: ../../components/responses/ServerUnavailable.yaml
+    '504':
+      $ref: ../../components/responses/GatewayTimeout.yaml

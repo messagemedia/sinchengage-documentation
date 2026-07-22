@@ -1,0 +1,42 @@
+title: LogSummaryResult
+type: object
+properties:
+  total_clicks:
+    type: number
+    example: 3
+  unique_clicks:
+    type: number
+    example: 1
+  total_views:
+    type: number
+    example: 2
+  unique_views:
+    type: number
+    example: 1
+  short_urls_generated:
+    type: number
+    example: 1
+  short_urls:
+    type: array
+    items:
+      $ref: ./ShortUrl.yaml
+    description: ''
+  pagination:
+    $ref: ../Pagination.yaml
+example:
+  total_clicks: 3
+  unique_clicks: 1
+  total_views: 2
+  unique_views: 1
+  short_urls_generated: 1
+  short_urls:
+    - click_count: 3
+      view_count: 2
+      message_id: 00000000-0000-0000-0000-000000000000
+      long_url: https://developers.sinch.com
+      short_url: https://nxt.to/abc1234
+      destination_number: 61491570157
+  pagination:
+    page: 1
+    page_size: 100
+    page_count: 3

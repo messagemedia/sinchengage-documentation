@@ -1,0 +1,40 @@
+required:
+  - accountId
+  - alias
+  - createdDate
+  - id
+  - lastModifiedDate
+  - name
+  - vendorId
+type: object
+properties:
+  id:
+    type: string
+    description: List id in UUID format
+    format: uuid
+    example: 025e93d3-051b-43f9-b12e-4b5842228dee
+  accountId:
+    type: string
+    description: Account id
+  vendorId:
+    type: string
+    description: Vendor id
+  name:
+    type: string
+    description: List name
+    example: My group
+  alias:
+    type: string
+    description: List alias
+    example: VIP group
+  createdDate:
+    type: string
+    description: Create date
+    format: date-time
+    example: '2022-08-18T09:15:03.112Z'
+  lastModifiedDate:
+    type: string
+    description: Last modified date
+    format: date-time
+    example: '2022-08-18T09:15:03.112Z'
+description: List details data

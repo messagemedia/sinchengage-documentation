@@ -1,0 +1,7 @@
+title: service_types
+enum:
+  - SMS
+  - TTS
+  - MMS
+type: string
+example: SMS

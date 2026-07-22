@@ -1,0 +1,19 @@
+title: insightsresponse
+type: object
+properties:
+  summaries:
+    type: array
+    items:
+      $ref: ./insightsitemresponse.yaml
+  total_sent:
+    type: number
+    example: 100
+  total_received:
+    type: number
+    example: 50
+  total_billing_units:
+    type: number
+    example: 150
+  total_opt_out:
+    type: number
+    example: 10

@@ -1,0 +1,9 @@
+title: 403 response
+required:
+  - message
+type: object
+properties:
+  message:
+    type: string
+example:
+  message: Invalid authentication credentials

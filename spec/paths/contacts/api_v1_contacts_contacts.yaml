@@ -1,0 +1,78 @@
+post:
+  security:
+    - basic_auth: []
+    - hmac_auth: []
+  tags:
+    - Contacts
+  summary: Create a contact
+  operationId: createContact
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/contacts/CreateContactRequest.yaml
+    required: true
+  responses:
+    '201':
+      description: Contact is created
+      content:
+        '*/*':
+          schema:
+            $ref: ../../components/schemas/contacts/ContactData.yaml
+    '400':
+      $ref: ../../components/responses/BadRequest.yaml
+    '401':
+      $ref: ../../components/responses/Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/Forbidden.yaml
+    '409':
+      $ref: ../../components/responses/Conflict.yaml
+    '500':
+      $ref: ../../components/responses/InternalServerError.yaml
+    '501':
+      $ref: ../../components/responses/RequestNotRecognised.yaml
+    '502':
+      $ref: ../../components/responses/BadGateway.yaml
+    '503':
+      $ref: ../../components/responses/ServerUnavailable.yaml
+    '504':
+      $ref: ../../components/responses/GatewayTimeout.yaml
+get:
+  security:
+    - basic_auth: []
+    - hmac_auth: []
+  tags:
+    - Contacts
+  summary: Get contacts page
+  operationId: getContactsPage
+  parameters:
+    - name: request
+      in: query
+      required: true
+      schema:
+        $ref: ../../components/schemas/contacts/GetContactsRequest.yaml
+  responses:
+    '200':
+      description: Returns a contacts page
+      content:
+        '*/*':
+          schema:
+            $ref: ../../components/schemas/contacts/PageTokenDtoContactData.yaml
+    '400':
+      $ref: ../../components/responses/BadRequest.yaml
+    '401':
+      $ref: ../../components/responses/Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/Forbidden.yaml
+    '409':
+      $ref: ../../components/responses/Conflict.yaml
+    '500':
+      $ref: ../../components/responses/InternalServerError.yaml
+    '501':
+      $ref: ../../components/responses/RequestNotRecognised.yaml
+    '502':
+      $ref: ../../components/responses/BadGateway.yaml
+    '503':
+      $ref: ../../components/responses/ServerUnavailable.yaml
+    '504':
+      $ref: ../../components/responses/GatewayTimeout.yaml

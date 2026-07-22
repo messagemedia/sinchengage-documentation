@@ -1,0 +1,78 @@
+post:
+  security:
+    - basic_auth: []
+    - hmac_auth: []
+  tags:
+    - Contacts
+  summary: Create a custom field
+  operationId: createCustomField
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/contacts/CustomFieldCreateRequest.yaml
+    required: true
+  responses:
+    '201':
+      description: Custom field is created
+      content:
+        '*/*':
+          schema:
+            $ref: ../../components/schemas/contacts/CustomFieldData.yaml
+    '400':
+      $ref: ../../components/responses/BadRequest.yaml
+    '401':
+      $ref: ../../components/responses/Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/Forbidden.yaml
+    '409':
+      $ref: ../../components/responses/Conflict.yaml
+    '500':
+      $ref: ../../components/responses/InternalServerError.yaml
+    '501':
+      $ref: ../../components/responses/RequestNotRecognised.yaml
+    '502':
+      $ref: ../../components/responses/BadGateway.yaml
+    '503':
+      $ref: ../../components/responses/ServerUnavailable.yaml
+    '504':
+      $ref: ../../components/responses/GatewayTimeout.yaml
+get:
+  security:
+    - basic_auth: []
+    - hmac_auth: []
+  tags:
+    - Contacts
+  summary: Get custom fields page
+  operationId: getCustomFieldsPage
+  parameters:
+    - name: request
+      in: query
+      required: true
+      schema:
+        $ref: ../../components/schemas/contacts/GetCustomFieldsRequest.yaml
+  responses:
+    '200':
+      description: Returns a custom fields page
+      content:
+        '*/*':
+          schema:
+            $ref: ../../components/schemas/contacts/PageTokenDtoCustomFieldData.yaml
+    '400':
+      $ref: ../../components/responses/BadRequest.yaml
+    '401':
+      $ref: ../../components/responses/Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/Forbidden.yaml
+    '409':
+      $ref: ../../components/responses/Conflict.yaml
+    '500':
+      $ref: ../../components/responses/InternalServerError.yaml
+    '501':
+      $ref: ../../components/responses/RequestNotRecognised.yaml
+    '502':
+      $ref: ../../components/responses/BadGateway.yaml
+    '503':
+      $ref: ../../components/responses/ServerUnavailable.yaml
+    '504':
+      $ref: ../../components/responses/GatewayTimeout.yaml

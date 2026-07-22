@@ -1,0 +1,51 @@
+title: AlphaTagRequestItem
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+    description: Primary ID of the record
+    example: 6f79a12e-14f1-4776-adc0-5c5e48a999b7
+  sender_address:
+    type: string
+    description: The Alpha tag to be requested
+    example: EXAMPLE
+  sender_address_type:
+    type: string
+    description: The Sender Address Type
+    enum:
+      - ALPHANUMERIC
+  usage_type:
+    type: string
+    description: The Sender Address Usage Type
+    enum:
+      - ALPHANUMERIC
+  destination_countries:
+    type: array
+    description: list of 2-character ISO country codes this sender address applies to
+    items:
+      type: string
+    example:
+      - AU
+  reason:
+    type: string
+    example: This is my reason
+  label:
+    type: string
+    example: label
+  status:
+    type: string
+    enum:
+      - OPEN
+      - PENDING
+      - REJECTED
+      - APPROVED
+  account_id:
+    type: string
+    example: XYZ_ExampleAccount
+  created_date:
+    type: string
+    format: date-time
+  last_modified_date:
+    type: string
+    format: date-time

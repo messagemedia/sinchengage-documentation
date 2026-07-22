@@ -1,0 +1,5 @@
+description: Current user does not have permissions to perform the requested operation
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/ApiError.yaml

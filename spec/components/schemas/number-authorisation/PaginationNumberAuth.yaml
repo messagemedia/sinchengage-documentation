@@ -1,0 +1,11 @@
+title: Pagination
+type: object
+properties:
+  page:
+    type: string
+    description: The pagination token of the next set of results.
+    example: '0'
+  next_uri:
+    type: string
+    description: The uri pointing to the next set of results.
+    example: /v1/number_authorisation/mt/blacklist?token=0

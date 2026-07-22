@@ -1,0 +1,11 @@
+title: Cancelscheduledmessagerequest
+required:
+  - status
+type: object
+properties:
+  status:
+    type: string
+    example: cancelled
+    description: Must be set to ```cancelled```.
+example:
+  status: cancelled

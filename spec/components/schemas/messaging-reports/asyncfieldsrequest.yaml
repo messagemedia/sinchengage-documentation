@@ -1,0 +1,14 @@
+title: asyncfieldsrequest
+type: object
+required:
+  - name
+  - display_name
+properties:
+  name:
+    type: string
+    example: id
+    description: The `async/detail/fields` value from API.
+  display_name:
+    type: string
+    example: id
+    description: Any string that you want to see in the CSV file header.

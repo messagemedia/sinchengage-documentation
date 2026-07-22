@@ -1,0 +1,29 @@
+title: UpdateWebhookrequest
+required:
+  - url
+  - method
+  - encoding
+  - events
+  - template
+type: object
+properties:
+  url:
+    type: string
+  method:
+    type: string
+  encoding:
+    type: string
+  events:
+    type: array
+    items:
+      type: string
+    description: ''
+  template:
+    type: string
+example:
+  url: https://myurl.com
+  method: POST
+  encoding: FORM_ENCODED
+  events:
+    - ENROUTE_DR
+  template: '{"id":"$mtId", "status":"$statusCode"}'

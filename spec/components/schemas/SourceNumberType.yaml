@@ -1,0 +1,10 @@
+title: SourceNumberType
+enum:
+  - INTERNATIONAL
+  - ALPHANUMERIC
+  - SHORTCODE
+type: string
+description: >-
+  Type of source address specified, this can be INTERNATIONAL, ALPHANUMERIC or
+  SHORTCODE
+example: INTERNATIONAL

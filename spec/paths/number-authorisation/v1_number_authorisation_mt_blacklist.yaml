@@ -1,0 +1,70 @@
+get:
+  security:
+    - basic_auth: []
+    - hmac_auth: []
+  tags:
+    - Number Authorisation
+  summary: List all blocked numbers
+  description: >-
+    This endpoint returns a list of 100 numbers that are on the blacklist. 
+    There is a pagination token to retrieve the next 100 numbers
+
+
+    In the example response the numbers `+61491570156` and `+61491570157` are on
+    the blacklist and therefore will never receive any messages from you.
+  operationId: ListAllBlockedNumbers
+  parameters: []
+  responses:
+    '200':
+      description: Number authorisation blacklist was returned succesfully.
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/number-authorisation/Getnumberauthorisationblacklistresponse.yaml
+    '403':
+      description: Unauthorised
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/403response.yaml
+post:
+  security:
+    - basic_auth: []
+    - hmac_auth: []
+  tags:
+    - Number Authorisation
+  summary: Add one or more numbers to your backlist
+  description: >-
+    This endpoint allows you to add one or more numbers to your blacklist. You
+    can add up to 10 numbers in one request.
+
+    NOTE: numbers need to be in international format and therefore start with a
+    +
+  operationId: AddOneOrMoreNumbersToYourBacklist
+  parameters: []
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/number-authorisation/Addoneormorenumberstoyourbacklistrequest.yaml
+        example:
+          numbers:
+            - 61491570156
+            - 61491570157
+    required: true
+  responses:
+    '201':
+      description: If all the numbers are already on the blacklist, then a 200 is returned.
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: >-
+              ../../components/schemas/number-authorisation/Addoneormorenumberstoyourbacklistresponse.yaml
+          example:
+            uri: /v1/number_authorisation/mt/blacklist
+            numbers:
+              - 61491570156
+              - 61491570157
+  deprecated: false

@@ -1,0 +1,10 @@
+title: VendorAccountId
+type: object
+properties:
+  vendor_id:
+    type: string
+    example: SinchEU
+  account_id:
+    type: string
+    description: The account used to submit the original message.
+    example: MyAccount001

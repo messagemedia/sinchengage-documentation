@@ -1,0 +1,45 @@
+title: metakeyrequest
+type: object
+required:
+  - start_date
+  - end_date
+properties:
+  page:
+    type: number
+    description: Page number for paging through paginated result sets.
+    example: 2
+  page_size:
+    type: number
+    description: Number of results to return in a page for paginated result sets.
+    example: 15
+  start_date:
+    type: string
+    description: >-
+      Start date time for report window. By default, the timezone for this
+      parameter will be taken from the account settings for the account
+      associated with the credentials used to make the request, or the account
+      included in the Account parameter. This can be overridden using the
+      timezone parameter per request. The date must be in ISO8601 format.
+    example: 2022-12-12T00:00:00.000z
+  end_date:
+    type: string
+    description: >-
+      End date time for report window. By default, the timezone for this
+      parameter will be taken from the account settings for the account
+      associated with the credentials used to make the request, or the account
+      included in the Account parameter. This can be overridden using the
+      timezone parameter per request. The date must be in ISO8601 format.
+    example: 2022-12-14T00:00:00.000z
+  direction:
+    $ref: ../MessageDirection.yaml
+  accounts:
+    type: array
+    items:
+      type: string
+    description: >-
+      Filter results by a specific account. By default results will be returned
+      for the account associated with the authentication credentials and all
+      sub-accounts.
+    example:
+      - Account1
+      - Account2

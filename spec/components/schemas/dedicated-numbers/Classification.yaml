@@ -1,0 +1,7 @@
+title: Classification
+enum:
+  - BRONZE
+  - SILVER
+  - GOLD
+type: string
+example: BRONZE

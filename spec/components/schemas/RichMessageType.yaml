@@ -1,0 +1,15 @@
+title: RichMessageType
+type: string
+description: >-
+  The type of rich message. Supported from 09/Sep/2025, and this data is
+  available only for reports starting from this date.
+enum:
+  - TEXT_MESSAGE
+  - MEDIA_MESSAGE
+  - LOCATION_MESSAGE
+  - CHOICE_RESPONSE_MESSAGE
+  - MEDIA_CARD_MESSAGE
+  - CARD_MESSAGE
+  - CAROUSEL_MESSAGE
+  - CHOICE_MESSAGE
+example: TEXT_MESSAGE

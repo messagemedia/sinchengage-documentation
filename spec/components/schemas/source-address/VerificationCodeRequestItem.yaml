@@ -1,0 +1,50 @@
+title: VerificationCodeRequestItem
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+    description: Primary ID of the record
+    example: 6f79a12e-14f1-4776-adc0-5c5e48a999b8
+  sender_address:
+    type: string
+    description: The Own Number to be requested
+    example: '+61401234567'
+  sender_address_type:
+    type: string
+    description: The Sender Address Type
+    enum:
+      - INTERNATIONAL
+  usage_type:
+    type: string
+    description: The Sender Address Usage Type
+    enum:
+      - OWN_NUMBER
+  destination_countries:
+    type: array
+    description: list of 2-character ISO country codes this sender address applies to
+    items:
+      type: string
+    example:
+      - AU
+  reason:
+    type: string
+    example: my personal number
+  label:
+    type: string
+    example: label
+  status:
+    type: string
+    enum:
+      - PENDING
+      - REJECTED
+      - APPROVED
+  account_id:
+    type: string
+    example: XYZ_ExampleAccount
+  created_date:
+    type: string
+    format: date-time
+  last_modified_date:
+    type: string
+    format: date-time

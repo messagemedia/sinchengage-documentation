@@ -1,0 +1,24 @@
+format:
+  title: MessageType
+  type: array
+  items:
+    type: string
+    enum:
+      - MMS
+      - SMS
+      - TTS
+      - RCS
+      - CHANNEL
+  description: Format of message type.
+  example:
+    - MMS
+    - TTS
+Format:
+  title: Format
+  enum:
+    - SMS
+    - TTS
+    - MMS
+  type: string
+  description: Filter results by message format, using enumerable MessageType.
+  example: SMS

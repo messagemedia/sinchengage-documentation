@@ -1,0 +1,34 @@
+required:
+  - label
+  - maxLength
+  - mergeTag
+  - type
+type: object
+properties:
+  label:
+    type: string
+    description: Custom field label
+    example: Contact name
+  mergeTag:
+    type: string
+    description: Custom field merge tag
+    example: contact_name
+  maxLength:
+    type: integer
+    description: Custom field max length
+    format: int32
+    example: 30
+  type:
+    type: string
+    description: Custom field type
+    example: DATE
+    enum:
+      - DATE
+      - NUMBER
+      - PHONE
+      - TEXT
+      - URL
+      - ZIP_CODE
+      - NAME
+      - EMAIL
+description: Custom field create payload

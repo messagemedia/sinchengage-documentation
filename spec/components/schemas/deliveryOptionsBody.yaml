@@ -1,0 +1,22 @@
+title: deliveryOptionsBody
+type: object
+properties:
+  delivery_type:
+    type: string
+    description: How to deliver the report.
+    example: EMAIL
+  delivery_addresses:
+    type: array
+    items:
+      type: string
+    example:
+      - email@example.com
+      - test@example.com
+    description: >-
+      A list of email addresses to use as the recipient of the email. Only works
+      for EMAIL delivery type
+  delivery_format:
+    type: string
+    description: Format of the report.
+    example: CSV
+description: A delivery option

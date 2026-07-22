@@ -1,0 +1,9 @@
+type: object
+title: PostVerificationCode
+required:
+  - verification_code
+properties:
+  verification_code:
+    type: string
+    description: Verify Sender Address Request
+    example: '123456'

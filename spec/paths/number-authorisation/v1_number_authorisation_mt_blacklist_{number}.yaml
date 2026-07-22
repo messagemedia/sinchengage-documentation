@@ -1,0 +1,36 @@
+delete:
+  security:
+    - basic_auth: []
+    - hmac_auth: []
+  tags:
+    - Number Authorisation
+  summary: Remove a number from the blacklist
+  description: >-
+    This endpoint allows you to remove a number from the blacklist.  Only one
+    number can be deleted per request.
+
+    In the example +61491570157 will be removed from the blacklist.
+
+    NOTE:  numbers need to be in international format and therefore start with a
+    +
+  operationId: RemoveANumberFromTheBlacklist
+  parameters:
+    - in: path
+      name: number
+      required: true
+      schema:
+        type: string
+      description: a number in international format e.g. ```+61491570156```
+  responses:
+    '200':
+      description: The number has been successfully deleted.
+      headers: {}
+      content:
+        text/plain:
+          schema:
+            type: string
+            description: The number has been successfully deleted.
+            format: binary
+    '404':
+      description: ''
+  deprecated: false

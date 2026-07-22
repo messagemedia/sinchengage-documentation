@@ -1,0 +1,9 @@
+title: Sendmessagesresponse
+type: object
+properties:
+  messages:
+    maxItems: 100
+    type: array
+    items:
+      $ref: ../Message.yaml
+    description: ''

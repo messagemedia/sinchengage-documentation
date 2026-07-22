@@ -1,0 +1,68 @@
+get:
+  security:
+    - basic_auth: []
+    - hmac_auth: []
+  tags:
+    - Short Trackable Links Reports
+  summary: Log detail
+  description: Detailed clicks report for a hashcode.
+  operationId: LogDetail
+  parameters:
+    - name: hash
+      in: query
+      description: ''
+      required: true
+      style: form
+      explode: true
+      schema:
+        type: string
+    - name: page
+      in: query
+      description: ''
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+    - name: pageSize
+      in: query
+      description: ''
+      style: form
+      explode: true
+      schema:
+        type: number
+        format: double
+  responses:
+    '200':
+      description: OK
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/short-trackable-links-reports/LogsDetailResult.yaml
+          example:
+            message_id: 00000000-0000-0000-0000-000000000000
+            long_url: https://developers.sinch.com
+            short_url: https://nxt.to/abc1234
+            destination_number: 61491570157
+            click_count: 3
+            view_count: 2
+            clicks:
+              - dt: '2018-09-18T01:22:17.071493'
+                user_agent: Mozilla/5.0 (Windows NT...
+                ip: 127.0.0.1
+            views:
+              - dt: '2018-09-18T01:22:17.071493'
+                user_agent: Mozilla/5.0 (Windows NT...
+                ip: 127.0.0.1
+            pagination:
+              page: 1
+              page_size: 100
+              page_count: 3
+    '400':
+      description: Bad Request. Invalid data provided
+    '404':
+      description: Data cannot be found
+    '500':
+      description: System Error
+  deprecated: false

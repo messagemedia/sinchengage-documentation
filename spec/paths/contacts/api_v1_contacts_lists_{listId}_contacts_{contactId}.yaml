@@ -1,0 +1,102 @@
+post:
+  security:
+    - basic_auth: []
+    - hmac_auth: []
+  tags:
+    - Contacts
+  summary: Add contact to a list
+  operationId: addContactToContactList
+  parameters:
+    - name: listId
+      in: path
+      description: Contact list id in UUID format
+      required: true
+      schema:
+        type: string
+        format: uuid
+        example: 025e93d3-051b-43f9-b12e-4b5842228dee
+    - name: contactId
+      in: path
+      description: Contact id to remove in UUID format
+      required: true
+      schema:
+        type: string
+        format: uuid
+        example: 4a03d2d8-1f85-463f-bdb4-2891c17258a7
+  responses:
+    '200':
+      description: Contacts have been added
+      content:
+        '*/*':
+          schema:
+            $ref: ../../components/schemas/contacts/ListData.yaml
+    '201':
+      description: Created
+      content:
+        '*/*':
+          schema:
+            $ref: ../../components/schemas/contacts/ListData.yaml
+    '400':
+      $ref: ../../components/responses/BadRequest.yaml
+    '401':
+      $ref: ../../components/responses/Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/Forbidden.yaml
+    '409':
+      $ref: ../../components/responses/Conflict.yaml
+    '500':
+      $ref: ../../components/responses/InternalServerError.yaml
+    '501':
+      $ref: ../../components/responses/RequestNotRecognised.yaml
+    '502':
+      $ref: ../../components/responses/BadGateway.yaml
+    '503':
+      $ref: ../../components/responses/ServerUnavailable.yaml
+    '504':
+      $ref: ../../components/responses/GatewayTimeout.yaml
+delete:
+  security:
+    - basic_auth: []
+    - hmac_auth: []
+  tags:
+    - Contacts
+  summary: Remove contact from the contact list
+  operationId: removeContactFromContactList
+  parameters:
+    - name: listId
+      in: path
+      description: Contact list id in UUID format
+      required: true
+      schema:
+        type: string
+        format: uuid
+        example: 025e93d3-051b-43f9-b12e-4b5842228dee
+    - name: contactId
+      in: path
+      description: Contact id to add in UUID format
+      required: true
+      schema:
+        type: string
+        format: uuid
+        example: 4a03d2d8-1f85-463f-bdb4-2891c17258a7
+  responses:
+    '204':
+      description: No Content
+    '400':
+      $ref: ../../components/responses/BadRequest.yaml
+    '401':
+      $ref: ../../components/responses/Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/Forbidden.yaml
+    '409':
+      $ref: ../../components/responses/Conflict.yaml
+    '500':
+      $ref: ../../components/responses/InternalServerError.yaml
+    '501':
+      $ref: ../../components/responses/RequestNotRecognised.yaml
+    '502':
+      $ref: ../../components/responses/BadGateway.yaml
+    '503':
+      $ref: ../../components/responses/ServerUnavailable.yaml
+    '504':
+      $ref: ../../components/responses/GatewayTimeout.yaml

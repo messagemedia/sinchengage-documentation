@@ -1,0 +1,48 @@
+patch:
+  security:
+    - basic_auth: []
+    - hmac_auth: []
+  tags:
+    - Contacts
+  summary: Add or remove multiple contacts to/from a list
+  operationId: modifyContactsInContactList
+  parameters:
+    - name: listId
+      in: path
+      description: Contact list id in UUID format
+      required: true
+      schema:
+        type: string
+        format: uuid
+        example: 025e93d3-051b-43f9-b12e-4b5842228dee
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/contacts/UpdateContactsListRequest.yaml
+    required: true
+  responses:
+    '200':
+      description: Contacts added/removed to/from list
+      content:
+        '*/*':
+          schema:
+            $ref: ../../components/schemas/contacts/ListData.yaml
+    '400':
+      $ref: ../../components/responses/BadRequest.yaml
+    '401':
+      $ref: ../../components/responses/Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/Forbidden.yaml
+    '409':
+      $ref: ../../components/responses/Conflict.yaml
+    '500':
+      $ref: ../../components/responses/InternalServerError.yaml
+    '501':
+      $ref: ../../components/responses/RequestNotRecognised.yaml
+    '502':
+      $ref: ../../components/responses/BadGateway.yaml
+    '503':
+      $ref: ../../components/responses/ServerUnavailable.yaml
+    '504':
+      $ref: ../../components/responses/GatewayTimeout.yaml

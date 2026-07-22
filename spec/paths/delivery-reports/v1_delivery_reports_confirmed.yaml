@@ -1,0 +1,81 @@
+post:
+  security:
+    - basic_auth: []
+    - hmac_auth: []
+  tags:
+    - Delivery Reports
+  summary: Confirm delivery reports as received
+  description: >-
+    Mark a delivery report as confirmed so it is no longer return in check
+    delivery reports requests.
+
+    The confirm delivery reports endpoint is intended to be used in conjunction
+    with the check delivery
+
+    reports endpoint to allow for robust processing of delivery reports. Once
+    one or more delivery
+
+    reports have been processed, they can then be confirmed using the confirm
+    delivery reports endpoint so they
+
+    are no longer returned in subsequent check delivery reports requests.
+
+    The confirm delivery reports endpoint takes a list of delivery report IDs as
+    follows:
+
+    ```json
+
+    {
+        "delivery_report_ids": [
+            "011dcead-6988-4ad6-a1c7-6b6c68ea628d",
+            "3487b3fa-6586-4979-a233-2d1b095c7718",
+            "ba28e94b-c83d-4759-98e7-ff9c7edb87a1"
+        ]
+    }
+
+    ```
+
+    The expiry date for getting an entity is 45 days. Up to 100 delivery reports
+    can be confirmed in a single confirm delivery reports request.
+  operationId: ConfirmDeliveryReportsAsReceived
+  parameters: []
+  requestBody:
+    description: Delivery reports to confirm as received.
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/delivery-reports/Confirmdeliveryreportsasreceivedrequest.yaml
+        example:
+          delivery_report_ids:
+            - 011dcead-6988-4ad6-a1c7-6b6c68ea628d
+            - 3487b3fa-6586-4979-a233-2d1b095c7718
+            - ba28e94b-c83d-4759-98e7-ff9c7edb87a1
+    required: true
+  responses:
+    '202':
+      description: Requested delivery reports will be marked as confirmed
+      headers: {}
+      content:
+        text/plain:
+          schema:
+            type: object
+            description: Requested delivery reports will be marked as confirmed
+    '400':
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/400response.yaml
+    '403':
+      description: Unauthorised
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/403response.yaml
+    '404':
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/404response.yaml
+  deprecated: false

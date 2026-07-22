@@ -1,0 +1,13 @@
+title: Createsignaturekeyrequest
+required:
+  - digest
+  - cipher
+type: object
+properties:
+  digest:
+    type: string
+  cipher:
+    type: string
+example:
+  digest: SHA224
+  cipher: RSA

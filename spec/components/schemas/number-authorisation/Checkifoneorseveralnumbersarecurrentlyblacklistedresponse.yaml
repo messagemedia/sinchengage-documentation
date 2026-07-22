@@ -1,0 +1,20 @@
+title: Checkifoneorseveralnumbersarecurrentlyblacklistedresponse
+required:
+  - uri
+  - numbers
+type: object
+properties:
+  uri:
+    type: string
+  numbers:
+    type: array
+    items:
+      $ref: ../Number.yaml
+    description: ''
+example:
+  uri: /v1/number_authorisation/is_authorised/+61491570156,+61491570157
+  numbers:
+    - number: 61491570156
+      authorised: true
+    - number: 61491570157
+      authorised: false

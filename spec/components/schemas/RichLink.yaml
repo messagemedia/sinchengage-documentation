@@ -1,0 +1,17 @@
+title: RichLink
+type: object
+properties:
+  image:
+    type: string
+    description: >-
+      The image field is used to specify the url of the media file that you want
+      to show in the link preview. Supported file formats include png, jpeg and
+      gif.
+  title:
+    type: string
+    description: >-
+      The (optional) title that appears on your unfurled link. Maximum 80 
+      characters.
+  description:
+    type: string
+    description: An optional description, maximum 150 characters.

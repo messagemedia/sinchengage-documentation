@@ -1,0 +1,7 @@
+title: scheduledreportresponse
+type: object
+properties:
+  scheduled_report_id:
+    type: string
+    example: 51f0097f-90b2-4a59-ad88-a0fd93abaa82
+    description: The ID of the scheduled report.

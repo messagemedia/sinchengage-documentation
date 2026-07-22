@@ -1,0 +1,15 @@
+title: GroupByInsightField
+enum:
+  - ACCOUNT
+  - DAY
+  - WEEK
+  - MONTH
+  - YEAR
+  - METADATA_KEY
+  - METADATA_VALUE
+  - STATUS
+  - COUNTRY
+  - CHANNEL
+  - POSTBACK_DATA
+type: string
+example: DAY

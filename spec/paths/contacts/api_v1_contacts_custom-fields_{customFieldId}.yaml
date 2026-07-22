@@ -1,0 +1,134 @@
+get:
+  security:
+    - basic_auth: []
+    - hmac_auth: []
+  tags:
+    - Contacts
+  summary: Get a single custom field
+  operationId: getCustomFieldById
+  parameters:
+    - name: customFieldId
+      in: path
+      description: Custom field id in UUID format
+      required: true
+      schema:
+        type: string
+        format: uuid
+      example: 025e93d3-051b-43f9-b12e-4b5842228dee
+  responses:
+    '200':
+      description: Returns a single custom field
+      content:
+        '*/*':
+          schema:
+            $ref: ../../components/schemas/contacts/CustomFieldData.yaml
+    '400':
+      $ref: ../../components/responses/BadRequest.yaml
+    '401':
+      $ref: ../../components/responses/Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/NotFound.yaml
+    '409':
+      $ref: ../../components/responses/Conflict.yaml
+    '500':
+      $ref: ../../components/responses/InternalServerError.yaml
+    '501':
+      $ref: ../../components/responses/RequestNotRecognised.yaml
+    '502':
+      $ref: ../../components/responses/BadGateway.yaml
+    '503':
+      $ref: ../../components/responses/ServerUnavailable.yaml
+    '504':
+      $ref: ../../components/responses/GatewayTimeout.yaml
+delete:
+  security:
+    - basic_auth: []
+    - hmac_auth: []
+  tags:
+    - Contacts
+  summary: Delete a custom field
+  operationId: deleteCustomFieldById
+  parameters:
+    - name: customFieldId
+      in: path
+      description: Custom field id in UUID format
+      required: true
+      schema:
+        type: string
+        format: uuid
+      example: 025e93d3-051b-43f9-b12e-4b5842228dee
+  responses:
+    '204':
+      description: Custom field is deleted
+    '400':
+      $ref: ../../components/responses/BadRequest.yaml
+    '401':
+      $ref: ../../components/responses/Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/NotFound.yaml
+    '409':
+      $ref: ../../components/responses/Conflict.yaml
+    '500':
+      $ref: ../../components/responses/InternalServerError.yaml
+    '501':
+      $ref: ../../components/responses/RequestNotRecognised.yaml
+    '502':
+      $ref: ../../components/responses/BadGateway.yaml
+    '503':
+      $ref: ../../components/responses/ServerUnavailable.yaml
+    '504':
+      $ref: ../../components/responses/GatewayTimeout.yaml
+patch:
+  security:
+    - basic_auth: []
+    - hmac_auth: []
+  tags:
+    - Contacts
+  summary: Update a custom field
+  operationId: updateCustomField
+  parameters:
+    - name: customFieldId
+      in: path
+      description: Custom field id in UUID format
+      required: true
+      schema:
+        type: string
+        format: uuid
+      example: 025e93d3-051b-43f9-b12e-4b5842228dee
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/contacts/UpdateCustomFieldRequest.yaml
+    required: true
+  responses:
+    '200':
+      description: Custom field is updated
+      content:
+        '*/*':
+          schema:
+            $ref: ../../components/schemas/contacts/CustomFieldData.yaml
+    '400':
+      $ref: ../../components/responses/BadRequest.yaml
+    '401':
+      $ref: ../../components/responses/Unauthorized.yaml
+    '403':
+      $ref: ../../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../../components/responses/NotFound.yaml
+    '409':
+      $ref: ../../components/responses/Conflict.yaml
+    '500':
+      $ref: ../../components/responses/InternalServerError.yaml
+    '501':
+      $ref: ../../components/responses/RequestNotRecognised.yaml
+    '502':
+      $ref: ../../components/responses/BadGateway.yaml
+    '503':
+      $ref: ../../components/responses/ServerUnavailable.yaml
+    '504':
+      $ref: ../../components/responses/GatewayTimeout.yaml

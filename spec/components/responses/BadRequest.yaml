@@ -1,0 +1,5 @@
+description: Request has incorrect values
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/InvalidInputApiError.yaml

@@ -1,0 +1,5 @@
+description: Maximum upload size exceeded
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/ApiError.yaml

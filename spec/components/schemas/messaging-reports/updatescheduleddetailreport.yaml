@@ -1,0 +1,15 @@
+title: updatescheduleddetailreport
+type: object
+required:
+  - label
+  - schedule
+  - report
+properties:
+  label:
+    type: string
+    example: Weekly Report
+    description: The label of the report schedule
+  schedule:
+    $ref: ./schedule.yaml
+  report:
+    $ref: ./scheduleddetailrequest.yaml

@@ -1,0 +1,34 @@
+put:
+  security:
+    - basic_auth: []
+    - hmac_auth: []
+  tags:
+    - Messaging Reports
+  summary: Update a scheduled detail report
+  description: >-
+    Updates a selected scheduled report in detail, which contains a total number
+    of sent, received and billing units.
+  operationId: updatedetailscheduledreport
+  parameters:
+    - name: scheduled_id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: The ID of the scheduled report to update.
+      example: e6fb8282-c7c3-4367-8590-6c77ddb11c3e
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/messaging-reports/updatescheduleddetailreport.yaml
+    required: true
+  responses:
+    '200':
+      description: The updated scheduled detail report.
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/messaging-reports/scheduleddetailreportresponse.yaml
+  deprecated: false

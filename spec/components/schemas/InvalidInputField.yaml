@@ -1,0 +1,43 @@
+required:
+  - code
+  - name
+  - reason
+type: object
+properties:
+  name:
+    type: string
+    description: Invalid input field name
+  channelType:
+    type: string
+    description: Invalid channel type
+    enum:
+      - PHONE
+      - WHATSAPP
+      - GBM
+      - INSTAGRAM
+      - FACEBOOK
+      - EMAIL
+  code:
+    type: string
+    description: Invalid input value code
+    enum:
+      - must_not_be_empty
+      - must_be_empty
+      - must_not_be_null
+      - invalid_length
+      - duplicated_value
+      - invalid_format
+      - type_mismatch
+      - missing_parameter
+      - invalid_reference
+      - incorrect_operation
+      - no_such_pattern
+      - constraint_violation
+  reason:
+    type: string
+    description: Error message
+  invalidIds:
+    type: array
+    items:
+      type: string
+description: Invalid input field

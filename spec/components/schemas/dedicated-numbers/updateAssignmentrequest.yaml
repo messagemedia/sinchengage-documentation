@@ -1,0 +1,15 @@
+title: updateAssignmentrequest
+required:
+  - label
+  - metadata
+type: object
+properties:
+  label:
+    type: string
+  metadata:
+    $ref: ../Metadata.yaml
+example:
+  label: ExampleLabel
+  metadata:
+    Key1: value1
+    Key2: value2

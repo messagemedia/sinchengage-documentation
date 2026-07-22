@@ -1,0 +1,246 @@
+get:
+  security:
+    - basic_auth: []
+    - hmac_auth: []
+  tags:
+    - Dedicated Numbers
+  summary: Get assignment
+  description: >-
+    Use this endpoint to view details of the assignment including the label and
+    metadata.
+  operationId: GetAssignment
+  parameters:
+    - name: numberId
+      in: path
+      description: unique identifier
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: e2014bc7-5fed-4e27-bd8c-XXXXXXXXXXX
+    - name: Accept
+      in: header
+      description: ''
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: application/json;charset=UTF-8
+  responses:
+    '200':
+      description: OK
+      headers: {}
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            $ref: ../../components/schemas/dedicated-numbers/Assignment.yaml
+          example:
+            metadata:
+              key1: value1
+            label: LabelTest0
+            id: be3cb602-7c00-4c87-ae4b-b8defc04f179
+            number_id: b9ee3fe8-2c20-47b1-96e9-c5d12d7ed985
+    '403':
+      description: Unexpected error in API call. See HTTP response body for details.
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/403response.yaml
+          example:
+            message: Invalid authentication credentials
+    '404':
+      description: Unexpected error in API call. See HTTP response body for details.
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/404response.yaml
+          example:
+            message: Not found
+  deprecated: false
+post:
+  security:
+    - basic_auth: []
+    - hmac_auth: []
+  tags:
+    - Dedicated Numbers
+  summary: Create assignment
+  description: >-
+    Assign the specified number to the authenticated account. 
+
+    Use the body of the request to specify a label or metadata 
+
+    for this number assignment.
+
+
+    If you receive a *conflict* error then the number that you have selected is
+    unavailable for assignment. 
+
+    This means that the number is either already assigned to another account, 
+
+    or has an available_after date in the future. Should this occur, perform 
+
+    another search and select a different number.
+  operationId: CreateAssignment
+  parameters:
+    - name: numberId
+      in: path
+      description: unique identifier
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: e2014bc7-5fed-4e27-bd8c-XXXXXXXXXXX
+    - name: Accept
+      in: header
+      description: ''
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: application/json;charset=UTF-8
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/dedicated-numbers/createAssignmentrequest.yaml
+        example:
+          label: ExampleLabel
+          metadata:
+            Key1: value1
+            Key2: value2
+    required: true
+  responses:
+    '201':
+      description: Created
+      headers: {}
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            $ref: ../../components/schemas/dedicated-numbers/Assignment.yaml
+          example:
+            label: cillum irure
+            number_id: et pariatur
+    '403':
+      description: Unexpected error in API call. See HTTP response body for details.
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/403response.yaml
+          example:
+            message: Invalid authentication credentials
+    '404':
+      description: Unexpected error in API call. See HTTP response body for details.
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/404response.yaml
+          example:
+            message: Not found
+  deprecated: false
+delete:
+  security:
+    - basic_auth: []
+    - hmac_auth: []
+  tags:
+    - Dedicated Numbers
+  summary: Delete assignment
+  description: Release the dedicated number from your account.
+  operationId: DeleteAssignment
+  parameters:
+    - name: numberId
+      in: path
+      description: unique identifier
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: e2014bc7-5fed-4e27-bd8c-XXXXXXXXXXX
+    - name: Accept
+      in: header
+      description: ''
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: application/json;charset=UTF-8
+  responses:
+    '204':
+      description: No Content
+      headers: {}
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            type: string
+            description: No Content
+            format: binary
+    '403':
+      description: Unexpected error in API call. See HTTP response body for details.
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/403response.yaml
+          example:
+            message: Invalid authentication credentials
+  deprecated: false
+patch:
+  security:
+    - basic_auth: []
+    - hmac_auth: []
+  tags:
+    - Dedicated Numbers
+  summary: Update assignment
+  description: >-
+    Retain the dedicated number assignment, and edit or add additional metadata
+    or title information. You can exclude any data from the body of this request
+    that you do not want updated.
+  operationId: UpdateAssignment
+  parameters:
+    - name: numberId
+      in: path
+      description: unique identifier
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: e2014bc7-5fed-4e27-bd8c-XXXXXXXXXXX
+    - name: Accept
+      in: header
+      description: ''
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: application/json;charset=UTF-8
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/dedicated-numbers/updateAssignmentrequest.yaml
+        example:
+          label: ExampleLabel
+          metadata:
+            Key1: value1
+            Key2: value2
+    required: true
+  responses:
+    '204':
+      description: OK
+      headers: {}
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            $ref: ../../components/schemas/dedicated-numbers/Assignment.yaml
+          example:
+            id: b06387c0-f4d9-4333-8657-c819bede79c3
+            number_id: 073fb6bd-f054-4644-aada-8fb204145d77
+    '403':
+      description: Unexpected error in API call. See HTTP response body for details.
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/403response.yaml
+          example:
+            message: Invalid authentication credentials
+  deprecated: false

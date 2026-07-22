@@ -1,0 +1,25 @@
+title: presignedurlresponse
+type: object
+properties:
+  download_url:
+    type: string
+    description: The pre-signed URL for downloading the report file.
+    example: https://s3.amazonaws.com/reports/51f0097f.csv?AWSAccessKeyId=EXAMPLE
+  file_name:
+    type: string
+    description: The filename of the report CSV.
+    example: report-51f0097f-90b2-4a59-ad88-a0fd93abaa82.csv
+  file_size:
+    type: integer
+    format: int64
+    description: The size of the report file in bytes.
+    example: 204800
+  expires_in_seconds:
+    type: integer
+    description: The number of seconds until the pre-signed URL expires.
+    example: 3600
+  expires_at:
+    type: integer
+    format: int64
+    description: Unix timestamp (seconds) when the pre-signed URL expires.
+    example: 1622555046

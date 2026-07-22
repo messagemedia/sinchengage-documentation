@@ -1,0 +1,21 @@
+title: schedule
+type: object
+description: The time schedule of a scheduled report
+required:
+  - timezone
+  - cron_expression
+  - type
+properties:
+  timezone:
+    type: string
+    example: UTC
+    description: The timezone of the report.
+  cron_expression:
+    type: string
+    example: 0 0 * * * ? *
+    description: >-
+      A string consisting of six or seven subexpressions that describe
+      individual details of the schedule.
+  type:
+    type: string
+    example: cron

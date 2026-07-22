@@ -1,0 +1,22 @@
+title: insightsitemresponse
+type: object
+properties:
+  group:
+    type: string
+    example: Account1
+  total_sent:
+    type: number
+    example: 60
+  total_received:
+    type: number
+    example: 30
+  total_billing_units:
+    type: number
+    example: 90
+  total_opt_out:
+    type: number
+    example: 7
+  sub_group:
+    type: array
+    items:
+      $ref: ./insightssubitemresponse.yaml

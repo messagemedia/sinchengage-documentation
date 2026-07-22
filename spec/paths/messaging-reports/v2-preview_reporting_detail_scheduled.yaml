@@ -1,0 +1,27 @@
+post:
+  security:
+    - basic_auth: []
+    - hmac_auth: []
+  tags:
+    - Messaging Reports
+  summary: Scheduled detail report
+  description: >-
+    Create scheduled report in detail containing total number of sent, received
+    and billing units.
+  operationId: detailscheduledreport
+  parameters: []
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/messaging-reports/scheduleddetailreport.yaml
+    required: true
+  responses:
+    '201':
+      description: A scheduled detail report received using the specified parameters.
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/messaging-reports/scheduledreportresponse.yaml
+  deprecated: false

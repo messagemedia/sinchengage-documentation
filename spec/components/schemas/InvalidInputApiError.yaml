@@ -1,0 +1,42 @@
+required:
+  - detail
+  - invalidFields
+  - title
+  - type
+  - uuid
+type: object
+properties:
+  uuid:
+    type: string
+    description: Error id in UUID format
+    format: uuid
+  type:
+    type: string
+    description: Error type
+    enum:
+      - validation
+      - not_found
+      - method_not_allowed
+      - conflict
+      - payload_too_large
+      - unsupported_media_type
+      - message_not_readable
+      - internal_server_error
+      - request_not_recognised
+      - forbidden
+      - bad_gateway
+      - payment_required
+      - unauthorized
+      - unknown
+  title:
+    type: string
+    description: Error title
+  detail:
+    type: string
+    description: Error additional details
+  invalidFields:
+    type: array
+    description: List of invalid fields
+    items:
+      $ref: ./InvalidInputField.yaml
+description: Invalid input error data

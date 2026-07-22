@@ -1,0 +1,67 @@
+post:
+  tags:
+    - Source Address
+  summary: Re-verify Sender Address
+  description: >
+    The below table defines the allowed combination of `sender_address_type` and
+    `usage_type` values
+
+
+    | Description      | sender_address_type | usage_type    |
+
+    | ---------------- | ------------------- | ------------  |
+
+    | Own Number       | INTERNATIONAL       | OWN_NUMBER    |
+
+
+    OWN_NUMBER Sender Addresses require reverification every 12 months to allow
+    continued use.
+
+    The reverification process is quite similar to the original verification
+    process for the Sender Address, and requires a fresh 2FA check.
+
+
+    To reverify an OWN_NUMBER Sender Address:
+      1. Retrieve the UUID for the OWN_NUMBER using the **Get all approved sender addresses** endpoint
+      2. Make a request to this endpoint to trigger the 2FA check
+      3. Make a POST request to the **Submit verification code endpoint**, providing the new 2FA code in the body of the request
+  operationId: reVerifySenderAddressUsingPOST
+  security:
+    - basic_auth: []
+    - hmac_auth: []
+  parameters:
+    - name: id
+      in: path
+      description: Sender Address ID
+      required: true
+      style: simple
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/source-address/ReVerifySenderAddressRequestItem.yaml
+    '400':
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/400response.yaml
+    '401':
+      description: Unauthorized
+    '403':
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/403response.yaml
+    '404':
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/404response.yaml

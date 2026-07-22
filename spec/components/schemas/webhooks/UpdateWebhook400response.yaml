@@ -1,0 +1,9 @@
+title: UpdateWebhook400response
+required:
+  - message
+type: object
+properties:
+  message:
+    type: string
+example:
+  message: Something went wrong. Please try again later.

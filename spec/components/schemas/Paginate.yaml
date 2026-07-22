@@ -1,0 +1,12 @@
+title: Pagination
+type: object
+properties:
+  page:
+    type: number
+    example: 0
+  page_size:
+    type: number
+    example: 20
+  has_next:
+    type: boolean
+    example: false

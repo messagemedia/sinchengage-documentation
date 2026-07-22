@@ -1,0 +1,27 @@
+title: Pagination
+type: object
+properties:
+  page:
+    type: number
+    description: The current page of results
+    example: 3
+  page_size:
+    type: number
+    description: The amount of results returned per page
+    example: 50
+  total_count:
+    type: number
+    description: The total number of results in the results set
+    example: 80
+  page_count:
+    type: number
+    description: The total number of pages in the results set
+    example: 5
+  next_uri:
+    type: string
+    description: Link to the next page of results
+    example: example.url
+  previous_uri:
+    type: string
+    description: Link to the previous page of results
+    example: example.url

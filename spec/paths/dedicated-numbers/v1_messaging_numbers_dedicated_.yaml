@@ -1,0 +1,85 @@
+get:
+  security:
+    - basic_auth: []
+    - hmac_auth: []
+  tags:
+    - Dedicated Numbers
+  summary: Get numbers
+  description: Get a list of available dedicated numbers, filtered by requirements.
+  operationId: GetNumbers
+  parameters:
+    - name: country
+      in: query
+      description: >-
+        ISO_3166 country code, 2 character code to filter available numbers by
+        country
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: AU
+    - name: matching
+      in: query
+      description: filters results by a pattern of digits contained within the number
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: 223344
+    - name: page_size
+      in: query
+      description: number of results returned per page, default 50
+      style: form
+      explode: true
+      schema:
+        type: integer
+        format: int32
+        example: 3
+    - name: service_types
+      in: query
+      description: filter results to include numbers with certain capabilities
+      style: form
+      explode: true
+      schema:
+        $ref: ../../components/schemas/dedicated-numbers/service_types.yaml
+    - name: token
+      in: query
+      description: >-
+        In paginated data the original request will return with a "next_token"
+        attribute. This token must be entered into subsequent call in the
+        "token" query parameter to obtain the next set of records.
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: example
+  responses:
+    '200':
+      description: OK
+      headers: {}
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            $ref: ../../components/schemas/dedicated-numbers/NumbersListResponse.yaml
+          example:
+            pagination:
+              next_token: 0428d673-0f75-4063-9493-e89d75f13438
+              page_size: 5
+            data:
+              - id: 03cf54ad-a4a3-4cd1-afd5-e0ca2cf158a3
+                phone_number: 61436489205
+                country: AU
+                type: MOBILE
+                classification: BRONZE
+                available_after: '2019-08-06T23:56:15.633Z'
+                capabilities:
+                  - SMS
+    '403':
+      description: Unexpected error in API call. See HTTP response body for details.
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/403response.yaml
+          example:
+            message: Invalid authentication credentials
+  deprecated: false

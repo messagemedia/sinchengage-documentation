@@ -1,0 +1,52 @@
+title: LogsDetailResult
+type: object
+properties:
+  message_id:
+    type: string
+    example: 00000000-0000-0000-0000-000000000000
+  long_url:
+    type: string
+    example: https://developers.sinch.com
+  short_url:
+    type: string
+    example: https://nxt.to/abc1234
+  destination_number:
+    type: string
+    example: 61491570157
+  click_count:
+    type: number
+    example: 3
+  view_count:
+    type: number
+    example: 2
+  clicks:
+    type: array
+    items:
+      $ref: ./Click.yaml
+    description: ''
+  views:
+    type: array
+    items:
+      $ref: ./View.yaml
+    description: ''
+  pagination:
+    $ref: ../Pagination.yaml
+example:
+  message_id: 00000000-0000-0000-0000-000000000000
+  long_url: https://developers.sinch.com
+  short_url: https://nxt.to/abc1234
+  destination_number: 61491570157
+  click_count: 3
+  view_count: 2
+  clicks:
+    - dt: '2018-09-18T01:22:17.071493'
+      user_agent: Mozilla/5.0 (Windows NT...
+      ip: 127.0.0.1
+  views:
+    - dt: '2018-09-18T01:22:17.071493'
+      user_agent: Mozilla/5.0 (Windows NT...
+      ip: 127.0.0.1
+  pagination:
+    page: 1
+    page_size: 100
+    page_count: 3

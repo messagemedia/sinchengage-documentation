@@ -1,0 +1,16 @@
+title: Status
+enum:
+  - enroute
+  - submitted
+  - delivered
+  - expired
+  - rejected
+  - undeliverable
+  - queued
+  - processed
+  - cancelled
+  - scheduled
+  - failed
+type: string
+description: The status of the message
+example: enroute

@@ -1,0 +1,9 @@
+title: Enablesignaturekeyrequest
+required:
+  - key_id
+type: object
+properties:
+  key_id:
+    type: string
+example:
+  key_id: 7ca628a8-08b0-4e42-aeb8-960b37049c31

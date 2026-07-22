@@ -1,0 +1,19 @@
+title: Bad request
+required:
+  - message
+  - details
+type: object
+properties:
+  message:
+    type: string
+  details:
+    type: array
+    items:
+      type: string
+    description: ''
+example:
+  message: >-
+    Request failed to parse correctly. Please ensure input is valid and try
+    again.
+  details:
+    - Failed to parse message body.
