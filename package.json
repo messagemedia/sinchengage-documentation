@@ -1,14 +1,18 @@
 {
   "name": "sinchengage",
   "version": "1.0.0",
-  "dependencies": {
-    "swagger-repo": "^2.0.0-rc.15"
-  },
   "private": true,
   "scripts": {
-    "start": "swagger-repo serve",
-    "build": "swagger-repo build -o web_deploy",
-    "test": "swagger-repo validate",
-    "gh-pages": "swagger-repo gh-pages"
+    "lint": "redocly lint",
+    "inject": "node scripts/inject-code-samples.mjs",
+    "bundle": "redocly bundle engage -o web_deploy/openapi.yaml",
+    "preview-docs": "npm run build && npx --yes serve web_deploy -l 8080",
+    "build-docs": "npm run inject && redocly build-docs .tmp/openapi.injected.yaml -t web/index.html -o web_deploy/index.html",
+    "build": "npm run build-docs && node scripts/copy-assets.mjs",
+    "test": "npm run lint"
+  },
+  "devDependencies": {
+    "@redocly/cli": "^2.0.0",
+    "js-yaml": "^4.1.0"
   }
 }

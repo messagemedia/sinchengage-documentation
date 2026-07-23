@@ -1,5 +1,6 @@
 node_modules/
 web_deploy/
+.tmp/
 .DS_Store
 .idea/
 *.swp
@@ -7,4 +8,3 @@ web_deploy/
 *~
 dist/
 build/
-

@@ -1,7 +1,18 @@
+apis:
+  engage:
+    root: spec/openapi.yaml
 
-apiTitle: Sinch Engage
-splitSpec: false
-codeSamples: true
-swaggerUI: true
-travis: false
-oasVersion: 3.0.0
+extends:
+  - recommended
+
+rules:
+  no-server-trailing-slash: warn
+  no-path-trailing-slash: warn
+  no-enum-type-mismatch: warn
+  security-defined: warn
+
+openapi:
+  theme:
+    colors:
+      primary:
+        main: '#32329f'
