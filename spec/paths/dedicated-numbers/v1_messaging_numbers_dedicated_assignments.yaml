@@ -145,7 +145,7 @@ get:
                   number: "61436489205"
                   authorised: true
     "403":
-      description: Unauthorised
+      description: Unauthorized
       content:
         application/json:
           schema:

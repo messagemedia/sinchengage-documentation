@@ -65,7 +65,7 @@ post:
           schema:
             $ref: ../../components/schemas/400response.yaml
     "403":
-      description: Unauthorised
+      description: Unauthorized
       content:
         application/json:
           schema:

@@ -146,7 +146,7 @@ get:
                   account_id: MyAccount
                 content: My second reply!
     "403":
-      description: Unauthorised
+      description: Unauthorized
       content:
         application/json:
           schema:

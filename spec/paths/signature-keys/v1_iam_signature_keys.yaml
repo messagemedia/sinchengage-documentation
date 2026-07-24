@@ -102,7 +102,7 @@ post:
     - The ```private key``` stored in Sinch is used to create the signature.
 
 
-    - The ```public key``` is returned and stored at your side to verify the signature in callbacks.
+    - The ```public key``` is returned and stored at your side to verify the signature in webhooks.
 
 
     You need to enable your signature key after creating.

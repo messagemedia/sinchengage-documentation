@@ -438,7 +438,7 @@ tags:
       Currently, Trusted Sender ID supports two types of Sender ID: Alpha Tags
       and Personal ("Own") Numbers. It will likely be extended to support
       additional number types, such as TFN and 10DLC where additional
-      registration, (external) verification, and overall account whitelist of
+      registration, (external) verification, and overall account allowlist of
       numbers will be required.
 
 
@@ -517,7 +517,7 @@ tags:
 
       replies received in response to the message or delivery reports received
       for the message will be pushed via a HTTP POST request. An alternative to
-      delivery reports via callbacks is custom webhooks using the webhooks
+      delivery reports via a callback URL is custom webhooks using the webhooks
       management API. 
 
 
@@ -736,7 +736,7 @@ tags:
       them or even delete them if needed.
   - name: Signature Key Management
     description: >
-      As a Sinch customer, you want to be able to ensure that callbacks are
+      As a Sinch customer, you want to be able to ensure that webhooks are
       coming from Sinch and not from a 3rd party. Since 
 
       these are calls to your own system, you should be provided with an extra
@@ -757,7 +757,7 @@ tags:
       The Signature Key API provides seven main endpoints:
 
       - ```Create signature key``` Create a new signature key for signature
-      verification in callbacks.
+      verification in webhooks.
 
       - ```Get signature key detail``` Retrieve the current detail of a
       signature key using the key_id returned in the ```create signature key```

@@ -109,7 +109,8 @@ CI workflows. The main workflow installs dependencies, lints the OpenAPI entry (
 
 | Path | Purpose |
 |------|---------|
-| `redocly.yaml` | Redocly CLI config: API root (`spec/openapi.yaml`), lint ruleset/extends, and ReDoc theme. |
+| `redocly.yaml` | Redocly CLI config: API root (`spec/openapi.yaml`), lint ruleset/extends, custom plugins, and ReDoc theme. |
+| `vocabulary.yaml` | Controlled vocabulary (banned terms + preferred replacements) enforced by `plugins/vocabulary.mjs`. |
 | `package.json` | Dependencies and npm scripts (`lint`, `build`, `preview-docs`, and so on). |
 
 ### Generated output (not committed)

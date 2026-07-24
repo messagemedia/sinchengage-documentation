@@ -215,7 +215,7 @@ post:
             details:
               - Request validation failed.
     "403":
-      description: Unauthorised
+      description: Unauthorized
       content:
         application/json:
           schema:

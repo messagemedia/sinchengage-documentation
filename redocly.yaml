@@ -2,6 +2,9 @@ apis:
   engage:
     root: spec/openapi.yaml
 
+plugins:
+  - './plugins/vocabulary.mjs'
+
 extends:
   - recommended
 
@@ -10,6 +13,7 @@ rules:
   no-path-trailing-slash: warn
   no-enum-type-mismatch: warn
   security-defined: warn
+  vocabulary/controlled-terms: warn
 
 openapi:
   theme:
