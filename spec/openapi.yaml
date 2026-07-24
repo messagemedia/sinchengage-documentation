@@ -88,6 +88,15 @@ info:
     delivery reports, or GET-by-id before re-submitting.
 
 
+    # OpenAPI artifacts
+
+    Download the machine-readable OpenAPI definition served with this
+    documentation as [openapi.yaml](./openapi.yaml). Spec changelogs, the
+    Redocly lint ruleset, and the controlled vocabulary live in the
+    [sinchengage-documentation](https://github.com/messagemedia/sinchengage-documentation)
+    repository (`changelogs/`, `redocly.yaml`, `vocabulary.yaml`).
+
+
     # Features
 
     ###  De-Duplication 

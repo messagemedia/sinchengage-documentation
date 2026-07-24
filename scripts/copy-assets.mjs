@@ -27,3 +27,14 @@ for (const name of ASSETS) {
   fs.copyFileSync(src, dest);
   console.log(`Copied ${name} -> web_deploy/${name}`);
 }
+
+// Publish the injected OpenAPI document next to the HTML docs so consumers can
+// download the same definition ReDoc renders (includes x-codeSamples).
+const injected = path.join(root, '.tmp', 'openapi.injected.yaml');
+const openapiOut = path.join(OUT_DIR, 'openapi.yaml');
+if (fs.existsSync(injected)) {
+  fs.copyFileSync(injected, openapiOut);
+  console.log('Copied .tmp/openapi.injected.yaml -> web_deploy/openapi.yaml');
+} else {
+  console.warn('Injected OpenAPI not found; run npm run inject before copy-assets');
+}

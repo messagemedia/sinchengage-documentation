@@ -8,12 +8,27 @@ plugins:
 extends:
   - recommended
 
+# CI (`npm run lint`) fails the build on any rule at severity `error`.
+# Trailing-slash rules stay at `warn` until path/server URLs are changed as a
+# deliberate API contract decision (see docs/MAPI-2253-ax-dx-assessment.md).
 rules:
+  # --- Merge blockers (hygiene + vocabulary) ---
+  no-invalid-media-type-examples: error
+  no-invalid-schema-examples: error
+  no-invalid-parameter-examples: error
+  operation-4xx-response: error
+  operation-description: error
+  operation-operationId: error
+  operation-summary: error
+  parameter-description: error
+  tag-description: error
+  security-defined: error
+  no-enum-type-mismatch: error
+  vocabulary/controlled-terms: error
+
+  # --- Deferred contract (do not block merges) ---
   no-server-trailing-slash: warn
   no-path-trailing-slash: warn
-  no-enum-type-mismatch: warn
-  security-defined: warn
-  vocabulary/controlled-terms: warn
 
 openapi:
   theme:

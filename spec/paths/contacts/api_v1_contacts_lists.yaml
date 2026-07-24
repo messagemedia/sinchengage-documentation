@@ -53,6 +53,9 @@ get:
     - name: request
       in: query
       required: true
+      description: >
+        Pagination and filter options for the contact lists page (page tokens,
+        page size, and related filters).
       schema:
         $ref: ../../components/schemas/contacts/GetListsRequest.yaml
   responses:

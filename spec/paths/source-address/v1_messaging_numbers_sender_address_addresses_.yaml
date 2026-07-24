@@ -36,6 +36,9 @@ get:
       example: ALPHANUMERIC
     - name: include_related_accounts
       in: query
+      description: >
+        When true, include Sender IDs that belong to related accounts in addition
+        to those on the authenticated account.
       schema:
         type: boolean
       example: true
