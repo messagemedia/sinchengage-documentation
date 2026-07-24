@@ -86,4 +86,3 @@ get:
             message: Invalid authentication credentials
     "429":
       $ref: ../../components/responses/TooManyRequests.yaml
-  deprecated: false

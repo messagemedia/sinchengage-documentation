@@ -87,7 +87,6 @@ get:
             message: This feature has not been enabled in your account.
     "429":
       $ref: ../../components/responses/TooManyRequests.yaml
-  deprecated: false
 post:
   security:
     - basic_auth: []
@@ -226,4 +225,3 @@ post:
             message: This feature has not been enabled in your account.
     "429":
       $ref: ../../components/responses/TooManyRequests.yaml
-  deprecated: false

@@ -84,7 +84,6 @@ get:
             message: Entity not found
     "429":
       $ref: ../../components/responses/TooManyRequests.yaml
-  deprecated: false
 delete:
   security:
     - basic_auth: []
@@ -137,4 +136,3 @@ delete:
             message: Entity not found
     "429":
       $ref: ../../components/responses/TooManyRequests.yaml
-  deprecated: false

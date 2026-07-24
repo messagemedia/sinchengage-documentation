@@ -63,7 +63,6 @@ patch:
       description: Payment required.
     "429":
       $ref: ../../components/responses/TooManyRequests.yaml
-  deprecated: false
 delete:
   security:
     - basic_auth: []
@@ -93,4 +92,3 @@ delete:
       description: Payment required.
     "429":
       $ref: ../../components/responses/TooManyRequests.yaml
-  deprecated: false

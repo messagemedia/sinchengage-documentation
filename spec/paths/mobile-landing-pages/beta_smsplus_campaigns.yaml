@@ -57,4 +57,3 @@ post:
       description: Payment required.
     "429":
       $ref: ../../components/responses/TooManyRequests.yaml
-  deprecated: false

@@ -33,4 +33,3 @@ get:
       description: Report not found.
     "429":
       $ref: ../../components/responses/TooManyRequests.yaml
-  deprecated: false

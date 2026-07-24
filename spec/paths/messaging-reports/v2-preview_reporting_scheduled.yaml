@@ -38,4 +38,3 @@ get:
       description: Scheduled report not found.
     "429":
       $ref: ../../components/responses/TooManyRequests.yaml
-  deprecated: false

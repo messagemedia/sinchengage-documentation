@@ -1219,12 +1219,6 @@ components:
       $ref: ./components/schemas/_format-schemas.yaml#/Format
     format:
       $ref: ./components/schemas/_format-schemas.yaml#/format
-    Lookupaphonenumberresponse:
-      $ref: ./components/schemas/Lookupaphonenumberresponse.yaml
-    Carrier:
-      $ref: ./components/schemas/Carrier.yaml
-    Lookupaphonenumber404response:
-      $ref: ./components/schemas/Lookupaphonenumber404response.yaml
     MessageMLP:
       $ref: ./components/schemas/mobile-landing-pages/MessageMLP.yaml
     MetadataMLP:

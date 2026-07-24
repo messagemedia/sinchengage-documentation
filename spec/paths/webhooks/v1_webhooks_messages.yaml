@@ -80,7 +80,6 @@ get:
             message: Something went wrong. Please try again later.
     "429":
       $ref: ../../components/responses/TooManyRequests.yaml
-  deprecated: false
 post:
   security:
     - basic_auth: []
@@ -411,4 +410,3 @@ post:
             message: A webhook with the given url and method already exists.
     "429":
       $ref: ../../components/responses/TooManyRequests.yaml
-  deprecated: false

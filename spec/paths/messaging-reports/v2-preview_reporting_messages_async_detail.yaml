@@ -39,4 +39,3 @@ post:
             $ref: ../../components/schemas/403response.yaml
     "429":
       $ref: ../../components/responses/TooManyRequests.yaml
-  deprecated: false

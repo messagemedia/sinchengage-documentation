@@ -107,7 +107,6 @@ patch:
             message: Entity not found
     "429":
       $ref: ../../components/responses/TooManyRequests.yaml
-  deprecated: false
 get:
   security:
     - basic_auth: []
@@ -173,7 +172,6 @@ get:
             message: Currently no key is enabled
     "429":
       $ref: ../../components/responses/TooManyRequests.yaml
-  deprecated: false
 delete:
   security:
     - basic_auth: []
@@ -207,4 +205,3 @@ delete:
             message: This feature has not been enabled in your account.
     "429":
       $ref: ../../components/responses/TooManyRequests.yaml
-  deprecated: false

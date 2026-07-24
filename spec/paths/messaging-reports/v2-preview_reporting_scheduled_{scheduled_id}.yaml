@@ -27,7 +27,6 @@ get:
       description: Scheduled report not found.
     "429":
       $ref: ../../components/responses/TooManyRequests.yaml
-  deprecated: false
 delete:
   security:
     - basic_auth: []
@@ -52,4 +51,3 @@ delete:
       description: Scheduled report not found.
     "429":
       $ref: ../../components/responses/TooManyRequests.yaml
-  deprecated: false

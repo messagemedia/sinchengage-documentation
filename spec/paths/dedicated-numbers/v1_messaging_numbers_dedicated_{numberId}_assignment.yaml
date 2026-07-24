@@ -58,7 +58,6 @@ get:
             message: Not found
     "429":
       $ref: ../../components/responses/TooManyRequests.yaml
-  deprecated: false
 post:
   security:
     - basic_auth: []
@@ -143,7 +142,6 @@ post:
             message: Not found
     "429":
       $ref: ../../components/responses/TooManyRequests.yaml
-  deprecated: false
 delete:
   security:
     - basic_auth: []
@@ -192,7 +190,6 @@ delete:
             message: Invalid authentication credentials
     "429":
       $ref: ../../components/responses/TooManyRequests.yaml
-  deprecated: false
 patch:
   security:
     - basic_auth: []
@@ -257,4 +254,3 @@ patch:
             message: Invalid authentication credentials
     "429":
       $ref: ../../components/responses/TooManyRequests.yaml
-  deprecated: false

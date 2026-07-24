@@ -63,7 +63,6 @@ post:
       description: Payment required.
     "429":
       $ref: ../../components/responses/TooManyRequests.yaml
-  deprecated: false
 get:
   security:
     - basic_auth: []
@@ -126,4 +125,3 @@ get:
       description: Payment required.
     "429":
       $ref: ../../components/responses/TooManyRequests.yaml
-  deprecated: false

@@ -90,4 +90,3 @@ get:
       description: Account is not postpaid, or does not have Mobile Landing Pages Enabled.
     "429":
       $ref: ../../components/responses/TooManyRequests.yaml
-  deprecated: false

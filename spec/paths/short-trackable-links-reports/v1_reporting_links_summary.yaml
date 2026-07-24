@@ -89,4 +89,3 @@ get:
       $ref: ../../components/responses/TooManyRequests.yaml
     "500":
       description: System Error
-  deprecated: false
