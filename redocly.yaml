@@ -31,6 +31,15 @@ rules:
   no-path-trailing-slash: warn
 
 openapi:
+  # ReDoc download controls — both files are published next to index.html on Pages.
+  # downloadDefinitionUrl is set so ReDoc does not force download="openapi.json" on every link;
+  # the actual buttons come from downloadUrls (browser then uses the URL filename).
+  downloadDefinitionUrl: ./openapi.yaml
+  downloadUrls:
+    - title: Download OpenAPI (YAML)
+      url: ./openapi.yaml
+    - title: Download OpenAPI (JSON)
+      url: ./openapi.json
   theme:
     colors:
       primary:

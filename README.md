@@ -94,7 +94,7 @@ Build helpers used by npm scripts.
 | Path | Purpose |
 |------|---------|
 | `/scripts/inject-code-samples.mjs` | Injects `/spec/code_samples/` into `x-codeSamples` on the bundled spec. |
-| `/scripts/copy-assets.mjs` | Copies `/web` assets into `/web_deploy` after docs are built. |
+| `/scripts/copy-assets.mjs` | Copies `/web` assets into `/web_deploy` and publishes `openapi.yaml` + `openapi.json` for ReDoc downloads. |
 
 ### `/changelog`
 Changelog entries for documentation or API updates.

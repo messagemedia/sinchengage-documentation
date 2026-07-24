@@ -1,4 +1,6 @@
-description: Too many requests — rate limit exceeded. Retry after the period indicated by response headers if present.
+description: >
+  Too many requests. Some operations may apply request limits; when this
+  response is returned, wait before retrying.
 content:
   application/json:
     schema:
@@ -8,6 +10,6 @@ content:
       properties:
         message:
           type: string
-          description: Human-readable explanation of the rate limit error
+          description: Human-readable explanation of why the request was rejected
       example:
-        message: Rate limit exceeded. Please retry later.
+        message: Too many requests. Please retry later.
