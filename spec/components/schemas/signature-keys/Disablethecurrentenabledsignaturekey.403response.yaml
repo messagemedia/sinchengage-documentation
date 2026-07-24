@@ -1,0 +1,9 @@
+title: Disablethecurrentenabledsignaturekey.403response
+required:
+  - message
+type: object
+properties:
+  message:
+    type: string
+example:
+  message: This feature has not been enabled in your account.

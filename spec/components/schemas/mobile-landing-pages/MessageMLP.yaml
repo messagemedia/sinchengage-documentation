@@ -1,0 +1,14 @@
+title: MessageMLP
+required:
+  - content
+  - metadata
+type: object
+properties:
+  content:
+    type: string
+  metadata:
+    $ref: ../Metadata.yaml
+example:
+  content: This is the message.
+  metadata:
+    key: value

@@ -1,0 +1,44 @@
+type: object
+properties:
+  nextPageToken:
+    type: string
+  prevPageToken:
+    type: string
+  pageSize:
+    maximum: 1000
+    type: integer
+    format: int32
+  listIds:
+    type: array
+    items:
+      type: string
+      format: uuid
+      example: 025e93d3-051b-43f9-b12e-4b5842228dee
+  contactIds:
+    type: array
+    items:
+      type: string
+      format: uuid
+      example: 025e93d3-051b-43f9-b12e-4b5842228dee
+  channelIds:
+    type: array
+    items:
+      type: string
+      example: '+15553456783'
+  channelTypes:
+    type: array
+    items:
+      type: string
+      enum:
+        - SMS
+        - WHATSAPP
+        - GBM
+        - INSTAGRAM
+        - FACEBOOK
+        - EMAIL
+  channelSubscriptionState:
+    type: string
+    enum:
+      - SUBSCRIBED
+      - UNSUBSCRIBED
+description: Get contacts page filter payload

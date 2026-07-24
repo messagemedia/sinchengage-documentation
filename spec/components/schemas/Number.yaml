@@ -1,0 +1,13 @@
+title: Number
+required:
+  - number
+  - authorised
+type: object
+properties:
+  number:
+    type: string
+  authorised:
+    type: boolean
+example:
+  number: 61491570156
+  authorised: true

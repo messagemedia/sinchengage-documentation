@@ -1,0 +1,61 @@
+required:
+  - accountId
+  - createdDate
+  - id
+  - label
+  - lastModifiedDate
+  - maxLength
+  - mergeTag
+  - type
+  - vendorId
+type: object
+properties:
+  id:
+    type: string
+    description: Custom field id in UUID format
+    format: uuid
+    example: 025e93d3-051b-43f9-b12e-4b5842228dee
+  accountId:
+    type: string
+    description: Account id
+    example: accountId_67846328
+  vendorId:
+    type: string
+    description: Vendor id
+  label:
+    type: string
+    description: Custom field label
+    example: Contact name
+  mergeTag:
+    type: string
+    description: Custom field merge tag
+    example: contact_name
+  maxLength:
+    type: integer
+    description: Custom field max length
+    format: int32
+    example: 30
+  type:
+    type: string
+    description: Custom field type
+    example: DATE
+    enum:
+      - DATE
+      - NUMBER
+      - PHONE
+      - TEXT
+      - URL
+      - ZIP_CODE
+      - NAME
+      - EMAIL
+  createdDate:
+    type: string
+    description: Create date
+    format: date-time
+    example: '2022-08-18T09:15:03.112Z'
+  lastModifiedDate:
+    type: string
+    description: Last modified date
+    format: date-time
+    example: '2022-08-18T09:15:03.112Z'
+description: Custom field data

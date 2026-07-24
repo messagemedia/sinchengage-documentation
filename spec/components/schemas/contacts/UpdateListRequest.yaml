@@ -1,0 +1,13 @@
+required:
+  - name
+type: object
+properties:
+  name:
+    type: string
+    description: Contact list name
+    example: My list
+  alias:
+    type: string
+    description: Contact list alias
+    example: List1
+description: Contact list update payload

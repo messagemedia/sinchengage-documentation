@@ -1,0 +1,29 @@
+title: RequestVerificationCode
+type: object
+required:
+  - sender_address
+  - sender_address_type
+  - usage_type
+  - destination_countries
+  - reason
+properties:
+  sender_address:
+    type: string
+    description: The Own Number to be verified
+  sender_address_type:
+    type: string
+    enum:
+      - INTERNATIONAL
+  usage_type:
+    type: string
+    enum:
+      - OWN_NUMBER
+  destination_countries:
+    type: array
+    description: list of 2-character ISO country codes
+    items:
+      type: string
+  reason:
+    type: string
+  label:
+    type: string

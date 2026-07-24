@@ -1,0 +1,45 @@
+title: Reply
+type: object
+properties:
+  callback_url:
+    type: string
+    description: >-
+      The URL specified as the callback URL in the original submit message
+      request
+    example: https://my.url.com
+  content:
+    maxLength: 5000
+    minLength: 1
+    type: string
+    description: Content of the reply
+    example: Hello back
+  date_received:
+    type: string
+    description: Date time when the reply was received
+    format: date-time
+    example: 11/3/2016 11:49:02 AM
+  destination_number:
+    maxLength: 15
+    minLength: 1
+    type: string
+    description: Address from which this reply was sent to
+    example: '+61491570156'
+  message_id:
+    type: string
+    description: Unique ID of the original message
+    format: uuid
+  metadata:
+    type: object
+    description: Any metadata that was included in the original submit message request
+  reply_id:
+    type: string
+    description: Unique ID of this reply
+    format: uuid
+  source_number:
+    maxLength: 15
+    minLength: 1
+    type: string
+    description: Address from which this reply was received from
+    example: '+61491570156'
+  vendor_account_id:
+    $ref: ../VendorAccountId.yaml

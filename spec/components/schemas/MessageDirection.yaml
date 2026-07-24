@@ -1,0 +1,8 @@
+title: MessageDirection
+type: object
+enum:
+  - inbound
+  - outbound
+  - all
+example: all
+description: The type of messages to include in the report.

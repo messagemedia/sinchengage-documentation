@@ -1,0 +1,8 @@
+title: Types
+enum:
+  - MOBILE
+  - LANDLINE
+  - TOLL_FREE
+  - SHORT_CODE
+type: string
+example: MOBILE,LANDLINE,TOLL_FREE

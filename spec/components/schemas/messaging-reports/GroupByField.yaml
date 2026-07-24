@@ -1,0 +1,12 @@
+title: GroupByField
+enum:
+  - ACCOUNT
+  - DAY
+  - WEEK
+  - MONTH
+  - YEAR
+  - METADATA_KEY
+  - METADATA_VALUE
+  - STATUS
+type: string
+example: DAY

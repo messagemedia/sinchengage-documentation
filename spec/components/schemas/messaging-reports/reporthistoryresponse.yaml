@@ -1,0 +1,64 @@
+title: reporthistoryresponse
+type: object
+properties:
+  report_id:
+    type: string
+    format: uuid
+    description: Unique identifier for the report.
+    example: 51f0097f-90b2-4a59-ad88-a0fd93abaa82
+  report_name:
+    type: string
+    description: The name of the report.
+    example: My Detail Report
+  report_type:
+    type: string
+    description: The type of the report.
+    enum:
+      - DETAIL
+      - SUMMARY
+    example: DETAIL
+  direction:
+    type: string
+    description: The message direction the report covers.
+    enum:
+      - INBOUND
+      - OUTBOUND
+      - ALL
+    example: OUTBOUND
+  requested_by:
+    type: string
+    description: The UUID of the user who requested the report.
+    example: MyAccount
+  requested_at:
+    type: string
+    format: date-time
+    description: The date and time when the report was requested (ISO 8601).
+    example: '2020-06-01T10:00:00.000Z'
+  updated_at:
+    type: string
+    format: date-time
+    description: The date and time when the report was last updated (ISO 8601).
+    example: '2020-06-01T10:05:00.000Z'
+  status:
+    type: string
+    description: The current status of the report.
+    enum:
+      - REQUESTED
+      - RUNNING
+      - FAILED
+      - CANCELLED
+      - DONE
+    example: DONE
+  account_id:
+    type: string
+    description: The account ID associated with the report.
+    example: MyAccount
+  vendor_id:
+    type: string
+    description: The vendor ID associated with the report.
+    example: sinchonline
+  s3_file_size:
+    type: integer
+    format: int64
+    description: The size of the report file in bytes.
+    example: 204800

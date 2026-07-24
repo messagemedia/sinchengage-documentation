@@ -1,0 +1,7 @@
+title: AssignedNumber
+type: object
+properties:
+  assignment:
+    $ref: ./Assignment.yaml
+  number:
+    $ref: ../Number.yaml

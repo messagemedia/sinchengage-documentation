@@ -1,0 +1,63 @@
+title: GetAllApprovedSenderAddresses
+type: object
+properties:
+  data:
+    type: array
+    items:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Primary ID of the record
+        sender_address:
+          type: string
+          description: The Sender Address to be requested
+        sender_address_type:
+          type: string
+          description: The Sender Address Type
+          enum:
+            - ALPHANUMERIC
+        usage_type:
+          type: string
+          description: The Sender Address Usage Type
+          enum:
+            - ALPHANUMERIC
+        destination_countries:
+          type: array
+          description: list of 2-character ISO country codes this sender address applies to
+          items:
+            type: string
+        reason:
+          type: string
+        label:
+          type: string
+        created_date:
+          type: string
+          format: date-time
+        last_modified_date:
+          type: string
+          format: date-time
+        expiry:
+          type: string
+          format: date-time
+          description: >-
+            The Sender Address expiration time (apply for sender_address_type =
+            OWN_NUMBER)
+        display_status:
+          type: string
+          description: >-
+            The Sender Address status (apply for sender_address_type =
+            OWN_NUMBER)
+          enum:
+            - APPROVED
+            - EXPIRING
+            - EXPIRED
+  pagination:
+    type: object
+    properties:
+      page_size:
+        type: number
+      next_token:
+        type: string
+        description: The pagination token of the next set of results.

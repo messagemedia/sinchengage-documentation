@@ -1,0 +1,10 @@
+title: SendCampaignToRecipientsrequest
+required:
+  - recipients
+type: object
+properties:
+  recipients:
+    type: array
+    items:
+      $ref: ./Recipient.yaml
+    description: ''

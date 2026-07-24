@@ -6,7 +6,7 @@ import yaml from 'js-yaml';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, '..');
 
-const SPEC_PATH = path.join(root, 'spec', 'openapi.yaml');
+const SPEC_PATH = path.join(root, '.tmp', 'openapi.bundled.yaml');
 const SAMPLES_DIR = path.join(root, 'spec', 'code_samples');
 const OUT_DIR = path.join(root, '.tmp');
 const OUT_PATH = path.join(OUT_DIR, 'openapi.injected.yaml');

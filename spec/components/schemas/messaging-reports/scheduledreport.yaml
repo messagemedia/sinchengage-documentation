@@ -1,0 +1,20 @@
+title: scheduledreport
+type: object
+properties:
+  label:
+    type: string
+    example: Weekly Report
+    description: The label of the report schedule
+  report:
+    $ref: ./scheduledsummaryrequest.yaml
+  schedule:
+    $ref: ./schedule.yaml
+  scheduled_report_id:
+    type: string
+    example: 43928f76-c381-4943-8619-f10460005898
+    description: The ID of the scheduled report.
+  message_type:
+    $ref: ../MessageDirection.yaml
+  report_type:
+    type: string
+    example: detail

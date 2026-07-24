@@ -1,0 +1,53 @@
+type: object
+properties:
+  firstName:
+    type: string
+    description: Contact first name
+    example: Adam
+  lastName:
+    type: string
+    description: Contact last name
+    example: Smith
+  alias:
+    type: string
+    description: >-
+      Contact alias. Used as an alternative name for your contact, as well as an
+      email handle for email to sms
+    example: user1234
+  dateOfBirth:
+    type: string
+    description: Date of birth
+    format: date
+    example: '2022-08-18'
+  country:
+    type: string
+    description: Country
+    example: US
+  state:
+    type: string
+    description: State
+    example: CA
+  location:
+    type: string
+    description: Location
+    example: Sunset Blvd
+  note:
+    type: string
+    description: Note
+    example: Note
+  channels:
+    type: array
+    description: Contact channels
+    items:
+      $ref: ./UpdateContactChannelRequest.yaml
+  lists:
+    type: array
+    description: Contact lists
+    items:
+      $ref: ./CreateContactListRequest.yaml
+  customFields:
+    type: array
+    description: Contact custom fields
+    items:
+      $ref: ./CreateCustomFieldRequest.yaml
+description: Contact update payload

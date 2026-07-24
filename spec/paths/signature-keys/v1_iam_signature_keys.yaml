@@ -1,0 +1,216 @@
+get:
+  tags:
+    - Signature Key Management
+  summary: Get signature key list
+  description: >-
+    Retrieve the paginated list of signature keys.
+
+
+    A successful request for the ```get signature key list``` endpoint will
+    return a response body as follows:
+
+
+    ```json
+
+    [
+      {
+        "key_id": "7ca628a8-08b0-4e42-aeb8-960b37049c31",
+        "cipher": "RSA",
+        "digest": "SHA224",
+        "created": "2018-01-18T10:16:12.364Z",
+        "enabled": false
+      }
+    ]
+
+    ```
+  operationId: GetSignatureKeyList
+  parameters:
+    - name: page
+      in: query
+      description: ''
+      required: true
+      schema:
+        type: string
+    - name: page_size
+      in: query
+      description: ''
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: The list of signature keys.
+      headers: {}
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../../components/schemas/signature-keys/Getsignaturekeylistresponse.yaml
+            description: The list of signature keys.
+          example:
+            - key_id: 7ca628a8-08b0-4e42-aeb8-960b37049c31
+              cipher: RSA
+              digest: SHA224
+              created: '2018-01-18T10:16:12.364Z'
+              enabled: true
+            - key_id: 6a0108cf-3659-435e-800e-004beb910fd1
+              cipher: RSA
+              digest: SHA224
+              created: '2018-01-18T10:15:31.035Z'
+              enabled: false
+    '400':
+      description: Unexpected error in API call. See HTTP response body for details.
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/signature-keys/Enablesignaturekey400response.yaml
+          example:
+            message: Bad Request
+            details:
+              - page property value is invalid
+    '403':
+      description: Unexpected error in API call. See HTTP response body for details.
+      content:
+        application/json:
+          schema:
+            $ref: >-
+              ../../components/schemas/signature-keys/Disablethecurrentenabledsignaturekey.403response.yaml
+          example:
+            message: This feature has not been enabled in your account.
+  deprecated: false
+post:
+  tags:
+    - Signature Key Management
+  summary: Create signature key
+  description: >-
+    This will create a key pair:
+
+
+    - The ```private key``` stored in Sinch is used to create the signature.
+
+
+    - The ```public key``` is returned and stored at your side to verify the
+    signature in callbacks.
+
+
+    You need to enable your signature key after creating.
+
+
+    The most basic body has the following structure:
+
+
+    ```json
+
+    {
+        "digest": "SHA224",
+        "cipher": "RSA"
+    }
+
+    ```
+
+
+    - ```digest``` is used to hash the message. The valid values for digest type
+    are: SHA224, SHA256, SHA512
+
+
+    - ```cipher``` is used to encrypt the hashed message. The valid value for
+    cipher type is: RSA
+
+
+    A successful request for the ```create signature key``` endpoint will return
+    a response body as follows:
+
+
+    ```json
+
+    {
+        "key_id": "7ca628a8-08b0-4e42-aeb8-960b37049c31",
+        "public_key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCTIxtRyT5CuOD74r7UCT+AKzWNxvaAP9myjAqR7+vBnJKEvoPnmbKTnm6uLlxutnMbjKrnCCWnQ9vtBVnnd+ElhwLDPADfMcJoOqwi7mTcxucckeEbBsfsgYRfdacxgSZL8hVD1hLViQr3xwjEIkJcx1w3x8npvwMuTY0uW8+PjwIDAQAB",
+        "cipher": "RSA",
+        "digest": "SHA224",
+        "created": "2018-01-18T10:16:12.364Z",
+        "enabled": false
+    }
+
+    ```
+
+
+    The response body of a successful POST request to the ```create signature
+    key``` endpoint will contain six properties:
+
+
+    - ```key_id``` will be a 36 character UUID which can be used to enable,
+    delete or get the details.
+
+
+    - ```public_key``` is used to decrypt the signature.
+
+
+    - ```cipher``` same as cipher in request body.
+
+
+    - ```digest``` same as digest in request body.
+
+
+    - ```created``` is the created date.
+
+
+    - ```enabled``` is false for the new signature key. You can use the
+    ```enable signature key``` endpoint to set this field to true.
+  operationId: CreateSignatureKey
+  parameters:
+    - name: Accept
+      in: header
+      description: ''
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: application/json
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/signature-keys/Createsignaturekeyrequest.yaml
+        example:
+          digest: SHA224
+          cipher: RSA
+    required: true
+  responses:
+    '201':
+      description: The new signature key has been created.
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/signature-keys/Createsignaturekeyresponse.yaml
+          example:
+            key_id: 7ca628a8-08b0-4e42-aeb8-960b37049c31
+            public_key: >-
+              MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCTIxtRyT5CuOD74r7UCT+AKzWNxvaAP9myjAqR7+vBnJKEvoPnmbKTnm6uLlxutnMbjKrnCCWnQ9vtBVnnd+ElhwLDPADfMcJoOqwi7mTcxucckeEbBsfsgYRfdacxgSZL8hVD1hLViQr3xwjEIkJcx1w3x8npvwMuTY0uW8+PjwIDAQAB
+            cipher: RSA
+            digest: SHA224
+            created: '2018-01-18T10:16:12.364Z'
+            enabled: false
+    '400':
+      description: Unexpected error in API call. See HTTP response body for details.
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/signature-keys/Enablesignaturekey400response.yaml
+          example:
+            message: Bad Request
+            details:
+              - '/cipher: [RA] is invalid'
+    '403':
+      description: Unexpected error in API call. See HTTP response body for details.
+      content:
+        application/json:
+          schema:
+            $ref: >-
+              ../../components/schemas/signature-keys/Disablethecurrentenabledsignaturekey.403response.yaml
+          example:
+            message: This feature has not been enabled in your account.
+  deprecated: false

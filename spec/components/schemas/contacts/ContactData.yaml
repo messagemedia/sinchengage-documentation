@@ -1,0 +1,93 @@
+required:
+  - accountId
+  - alias
+  - channels
+  - country
+  - createdDate
+  - customFields
+  - firstName
+  - fullName
+  - id
+  - lastModifiedDate
+  - lastName
+  - lists
+  - location
+  - note
+  - state
+  - vendorId
+type: object
+properties:
+  id:
+    type: string
+    description: Contact id in UUID format
+    format: uuid
+    example: 025e93d3-051b-43f9-b12e-4b5842228dee
+  accountId:
+    type: string
+    description: Account id
+  vendorId:
+    type: string
+    description: Vendor id
+  firstName:
+    type: string
+    description: Contact first name
+    example: Adam
+  lastName:
+    type: string
+    description: Contact last name
+    example: Smith
+  fullName:
+    type: string
+    description: Contact full name
+    example: Adam Smith
+  alias:
+    type: string
+    description: Contact alias
+    example: VIP contact
+  dateOfBirth:
+    type: string
+    description: Date of birth
+    format: date
+    example: '2022-08-18'
+  country:
+    type: string
+    description: Country
+    example: US
+  state:
+    type: string
+    description: State
+    example: CA
+  location:
+    type: string
+    description: Location
+    example: Sunset Blvd
+  note:
+    type: string
+    description: Note
+    example: Note
+  createdDate:
+    type: string
+    description: Create date
+    format: date-time
+    example: '2022-08-18T09:15:03.112Z'
+  lastModifiedDate:
+    type: string
+    description: Last modified date
+    format: date-time
+    example: '2022-08-18T09:15:03.112Z'
+  customFields:
+    type: array
+    description: List of custom fields
+    items:
+      $ref: ./ContactCustomFieldData.yaml
+  channels:
+    type: array
+    description: Contact channels
+    items:
+      $ref: ./ContactChannelData.yaml
+  lists:
+    type: array
+    description: Contact lists
+    items:
+      $ref: ./ContactListData.yaml
+description: Contact data

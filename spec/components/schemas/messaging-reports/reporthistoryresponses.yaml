@@ -1,0 +1,14 @@
+title: reporthistoryresponses
+type: object
+properties:
+  items:
+    type: array
+    items:
+      $ref: ./reporthistoryresponse.yaml
+    description: A list of report history items.
+  next_page_token:
+    type: string
+    description: >-
+      A token to retrieve the next page of results. Absent if there are no more
+      pages.
+    example: eyJyZXBvcnRJZCI6IjUxZjAwOTdmLTkwYjItNGE1OS1hZDg4LWEwZmQ5M2FiYWE4MiJ9

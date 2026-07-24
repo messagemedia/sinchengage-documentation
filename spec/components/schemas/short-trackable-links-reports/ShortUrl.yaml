@@ -1,0 +1,21 @@
+title: ShortUrl
+type: object
+properties:
+  click_count:
+    type: number
+    example: 3
+  view_count:
+    type: number
+    example: 2
+  message_id:
+    type: string
+    example: 00000000-0000-0000-0000-000000000000
+  long_url:
+    type: string
+    example: https://developers.sinch.com
+  short_url:
+    type: string
+    example: https://nxt.to/abc1234
+  destination_number:
+    type: string
+    example: 61491570157

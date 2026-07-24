@@ -1,0 +1,17 @@
+title: Enablesignaturekey400response
+required:
+  - message
+  - details
+type: object
+properties:
+  message:
+    type: string
+  details:
+    type: array
+    items:
+      type: string
+    description: ''
+example:
+  message: Bad Request
+  details:
+    - '/key_id: Key id cannot be null'

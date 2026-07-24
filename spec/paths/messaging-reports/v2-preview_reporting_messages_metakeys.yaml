@@ -1,0 +1,28 @@
+post:
+  security:
+    - basic_auth: []
+    - hmac_auth: []
+  tags:
+    - Messaging Reports
+  summary: Metadata Keys
+  description: Returns a list of metadata keys.
+  operationId: PostMetadataKeys
+  parameters: []
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/messaging-reports/metakeyrequest.yaml
+  responses:
+    '200':
+      description: A list of metadata keys.
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/messaging-reports/metakeyresponse.yaml
+    '400':
+      description: >-
+        Bad Request. Check the json response for more details on what went
+        wrong.

@@ -1,0 +1,12 @@
+type: object
+properties:
+  label:
+    type: string
+    description: Custom field label
+    example: Contact name
+  maxLength:
+    type: integer
+    description: Custom field max length
+    format: int32
+    example: 30
+description: Custom field update payload

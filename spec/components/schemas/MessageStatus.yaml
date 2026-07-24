@@ -1,0 +1,19 @@
+title: MessageStatus
+type: string
+enum:
+  - UNDEFINED
+  - QUEUED
+  - PROCESSING
+  - PROCESSED
+  - FAILED
+  - SCHEDULED
+  - CANCELLED
+  - DELIVERED
+  - EXPIRED
+  - ENROUTE
+  - HELD
+  - SUBMITTED
+  - REJECTED
+  - READ
+example: DELIVERED
+description: An enumerable list of potential message statuses.

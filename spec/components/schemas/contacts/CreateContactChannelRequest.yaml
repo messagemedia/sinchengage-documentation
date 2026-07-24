@@ -1,0 +1,24 @@
+required:
+  - channelId
+  - type
+type: object
+properties:
+  channelId:
+    type: string
+    description: Contact channel id (in case phone number - in E164 international format)
+    example: '+15553456783'
+  type:
+    type: string
+    description: Contact channel type
+    example: SMS
+    enum:
+      - SMS
+      - WHATSAPP
+  subscriptionState:
+    type: string
+    description: Subscription state
+    example: UNSUBSCRIBED
+    enum:
+      - SUBSCRIBED
+      - UNSUBSCRIBED
+description: Contact channel create payload

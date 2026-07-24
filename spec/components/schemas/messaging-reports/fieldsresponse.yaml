@@ -1,0 +1,12 @@
+title: fieldsresponse
+type: object
+properties:
+  fields:
+    type: array
+    items:
+      type: string
+      example:
+        - id
+        - content
+        - meta1
+    description: An array of fields to be retrieved.

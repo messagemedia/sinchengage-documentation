@@ -1,0 +1,13 @@
+required:
+  - name
+type: object
+properties:
+  name:
+    type: string
+    description: Group name
+    example: My group
+  alias:
+    type: string
+    description: Group alias
+    example: Group1
+description: Contact list create payload

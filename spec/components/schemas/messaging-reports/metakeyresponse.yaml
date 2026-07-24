@@ -1,0 +1,10 @@
+title: metakeyresponse
+properties:
+  keys:
+    type: array
+    items:
+      type: string
+    example:
+      - meta1
+      - meta2
+      - meta3

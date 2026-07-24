@@ -4,22 +4,63 @@
 
 This repository holds the OpenAPI description and hosted API reference for the Sinch Engage API.
 
-The source of truth is the OpenAPI file under `/spec`. Code samples live beside it and are injected into the spec at build time. Static ReDoc documentation is built with Redocly CLI and published to GitHub Pages via CI.
+The source of truth is a **multi-file OpenAPI** tree under `/spec`. Edit path and component files directly; CI and local builds bundle them, inject code samples, and publish static ReDoc documentation to GitHub Pages.
 
 ## Repository Structure
 
 ### `/spec`
-OpenAPI specification for Sinch Engage.
+OpenAPI specification for Sinch Engage (split across an entry file, paths, and components).
 
 | Path | Purpose |
 |------|---------|
-| `/spec/openapi.yaml` | Main OpenAPI 3.0 description (paths, schemas, security, and prose). |
+| `/spec/openapi.yaml` | Entry document: `info`, `tags`, `servers`, path `$ref`s, and selected component `$ref`s. |
+| `/spec/paths/` | One YAML file per API path (operations live here). |
+| `/spec/components/` | Shared `schemas/`, `responses/`, and `headers/`. (`securitySchemes` stay inline in `openapi.yaml`.) |
 | `/spec/code_samples/` | Per-language request samples, mapped onto operations at build time. |
 | `/spec/README.md` | Notes about the spec layout. |
 
-e.g.:
-- `/spec/openapi.yaml`
-- `/spec/code_samples/JavaScript/v1@messages/post.js`
+Example layout:
+
+```text
+spec/
+  openapi.yaml
+  paths/
+    contacts/
+    messages/
+    delivery-reports/
+    replies/
+    source-address/
+    dedicated-numbers/
+    number-authorisation/
+    webhooks/
+    signature-keys/
+    short-trackable-links-reports/
+    messaging-reports/
+    mobile-landing-pages/
+  components/
+    schemas/
+      contacts/
+      messages/
+      delivery-reports/
+      replies/
+      source-address/
+      dedicated-numbers/
+      number-authorisation/
+      webhooks/
+      signature-keys/
+      short-trackable-links-reports/
+      messaging-reports/
+      mobile-landing-pages/
+      _format-schemas.yaml           # shared; case-safe Format/format
+      Number.yaml                    # shared across tags
+      ...                            # other shared schemas stay at this level
+    responses/
+    headers/
+  code_samples/
+    JavaScript/v1@messages/post.js
+```
+
+**How to edit:** change the relevant file under `spec/paths/` or `spec/components/`. Do not hand-edit a bundled single-file copy. Lint/build resolve `$ref`s and produce the published docs.
 
 #### Code samples
 
@@ -33,7 +74,7 @@ e.g.:
 - `/spec/code_samples/JavaScript/v1@messages@{messageId}/get.js` → `GET /v1/messages/{messageId}`
 - `/spec/code_samples/Python/v1@messages/post.py` → `POST /v1/messages`
 
-At build time, `scripts/inject-code-samples.mjs` walks this tree and attaches each file as an `x-codeSamples` entry on the matching operation. The original `/spec/openapi.yaml` is never mutated; the merged result is written to `.tmp/openapi.injected.yaml`.
+At build time the pipeline first **bundles** the multi-file spec, then `scripts/inject-code-samples.mjs` walks the samples tree and attaches each file as an `x-codeSamples` entry on the matching operation. Source files under `/spec` are never mutated; intermediates are written under `/.tmp`.
 
 See [`/spec/code_samples/README.md`](spec/code_samples/README.md) for the full convention.
 
@@ -52,7 +93,7 @@ Build helpers used by npm scripts.
 
 | Path | Purpose |
 |------|---------|
-| `/scripts/inject-code-samples.mjs` | Injects `/spec/code_samples/` into `x-codeSamples` on operations. |
+| `/scripts/inject-code-samples.mjs` | Injects `/spec/code_samples/` into `x-codeSamples` on the bundled spec. |
 | `/scripts/copy-assets.mjs` | Copies `/web` assets into `/web_deploy` after docs are built. |
 
 ### `/changelog`
@@ -62,13 +103,13 @@ e.g.:
 - `/changelog/2026-06-16-MAPI-2218.md`
 
 ### `/.github`
-CI workflows. The main workflow installs dependencies, lints the OpenAPI file, builds static docs into `/web_deploy`, and deploys that folder to GitHub Pages.
+CI workflows. The main workflow installs dependencies, lints the OpenAPI entry (resolving `$ref`s), builds static docs into `/web_deploy`, and deploys that folder to GitHub Pages.
 
 ### Root config
 
 | Path | Purpose |
 |------|---------|
-| `redocly.yaml` | Redocly CLI config: API root, lint ruleset/extends, and ReDoc theme. |
+| `redocly.yaml` | Redocly CLI config: API root (`spec/openapi.yaml`), lint ruleset/extends, and ReDoc theme. |
 | `package.json` | Dependencies and npm scripts (`lint`, `build`, `preview-docs`, and so on). |
 
 ### Generated output (not committed)
@@ -76,7 +117,7 @@ CI workflows. The main workflow installs dependencies, lints the OpenAPI file, b
 | Path | Purpose |
 |------|---------|
 | `/web_deploy` | Static site output: `index.html` plus copied assets. Deployed by CI. |
-| `/.tmp` | Intermediate files such as `openapi.injected.yaml` (spec with code samples). |
+| `/.tmp` | Intermediate files: `openapi.bundled.yaml` (resolved `$ref`s) and `openapi.injected.yaml` (bundle + code samples). |
 
 ## Working on specification
 
@@ -88,16 +129,20 @@ CI workflows. The main workflow installs dependencies, lints the OpenAPI file, b
 ### Usage
 
 #### `npm run lint`
-Validates the OpenAPI spec with Redocly lint rules.
+Validates the OpenAPI spec with Redocly lint rules (follows `$ref`s across the split files).
 
 #### `npm run preview-docs`
-Builds the static docs (with code samples injected) and serves `web_deploy` at http://localhost:8080 so you can preview the same output CI deploys.
+Builds the static docs (bundle → inject code samples → ReDoc) and serves `web_deploy` at http://localhost:8080 so you can preview the same output CI deploys.
 
 #### `npm run build`
-Injects code samples, builds static ReDoc HTML into `web_deploy`, and copies web assets (logo, favicon, etc.).
+Bundles the multi-file spec, injects code samples, builds static ReDoc HTML into `web_deploy`, and copies web assets (logo, favicon, etc.).
 
 #### `npm run bundle`
 Bundles the OpenAPI spec to `web_deploy/openapi.yaml`.
 
 #### `npm test`
 Alias for `npm run lint`.
+
+### Manual preview check
+
+After changing the spec layout or build pipeline, open the local preview (`npm run preview-docs`) or the Pages preview for the PR and confirm ReDoc looks the same as the published docs at https://docs.app.api.sinch.com/ (sidebar tags, operations, and code samples).

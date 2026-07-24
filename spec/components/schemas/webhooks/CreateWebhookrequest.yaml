@@ -1,0 +1,35 @@
+title: CreateWebhookrequest
+required:
+  - url
+  - method
+  - encoding
+  - headers
+  - events
+  - template
+type: object
+properties:
+  url:
+    type: string
+  method:
+    type: string
+  encoding:
+    type: string
+  headers:
+    $ref: ./Headers.yaml
+  events:
+    type: array
+    items:
+      type: string
+    description: ''
+  template:
+    type: string
+example:
+  url: http://webhook.com
+  method: POST
+  encoding: JSON
+  headers:
+    Account: DeveloperPortal7000
+  events:
+    - ENROUTE_DR
+    - DELIVERED_DR
+  template: '{"id":"$mtId","status":"$statusCode"}'

@@ -1,0 +1,21 @@
+type: object
+properties:
+  contactsToAddIds:
+    maxItems: 1000
+    minItems: 0
+    type: array
+    items:
+      type: string
+      description: List of contacts to add to the list in UUID format
+      format: uuid
+      example: 025e93d3-051b-43f9-b12e-4b5842228dee
+  contactsToRemoveIds:
+    maxItems: 1000
+    minItems: 0
+    type: array
+    items:
+      type: string
+      description: List of contacts to remove from the list in UUID format
+      format: uuid
+      example: 025e93d3-051b-43f9-b12e-4b5842228dee
+description: Contacts list update payload

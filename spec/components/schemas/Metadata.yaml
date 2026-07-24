@@ -1,0 +1,7 @@
+title: Metadata
+type: object
+additionalProperties:
+  type: string
+example:
+  Key1: value1
+  Key2: value2

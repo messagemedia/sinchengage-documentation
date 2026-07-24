@@ -1,0 +1,29 @@
+title: RequestAlphaTag
+type: object
+required:
+  - sender_address
+  - sender_address_type
+  - usage_type
+  - destination_countries
+  - reason
+properties:
+  sender_address:
+    type: string
+    description: The Sender Address to be requested
+  sender_address_type:
+    type: string
+    enum:
+      - ALPHANUMERIC
+  usage_type:
+    type: string
+    enum:
+      - ALPHANUMERIC
+  destination_countries:
+    type: array
+    description: list of 2-character ISO country codes
+    items:
+      type: string
+  reason:
+    type: string
+  label:
+    type: string

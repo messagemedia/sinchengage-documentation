@@ -1,0 +1,22 @@
+title: insightsubitemresponse
+type: object
+properties:
+  date:
+    type: string
+    description: One or more dates seperated by a comma, e.g. 2022-05-18,2022-05-19
+    example: '2020-11-01'
+  group:
+    type: string
+    example: '2020-11-01'
+  total_sent:
+    type: number
+    example: 20
+  total_received:
+    type: number
+    example: 0
+  total_billing_units:
+    type: number
+    example: 20
+  total_opt_out:
+    type: number
+    example: 0

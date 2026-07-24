@@ -1,0 +1,19 @@
+title: Getnumberauthorisationblacklistresponse
+type: object
+properties:
+  uri:
+    type: string
+    description: >-
+      URL of the current API call, used to show the current pagination token for
+      calls subsequent to the first one in the case of paginated data.
+    example: /v1/number_authorisation/mt/blacklist"
+  numbers:
+    type: array
+    description: List of numbers belonging to the blacklist.
+    items:
+      type: string
+    example:
+      - '+61491570156'
+      - '+61491570157'
+  pagination:
+    $ref: ./PaginationNumberAuth.yaml

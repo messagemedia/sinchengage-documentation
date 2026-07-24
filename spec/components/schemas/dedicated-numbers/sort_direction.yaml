@@ -1,0 +1,7 @@
+title: sort_direction
+enum:
+  - ASCENDING
+  - DESCENDING
+type: string
+description: Order to sort results by.
+example: ASCENDING

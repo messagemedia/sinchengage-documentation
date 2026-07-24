@@ -1,0 +1,12 @@
+title: reportstatusresponse
+type: object
+properties:
+  report_status:
+    type: string
+    enum:
+      - REQUESTED
+      - RUNNING
+      - FAILED
+      - CANCELLED
+      - DONE
+    example: DONE

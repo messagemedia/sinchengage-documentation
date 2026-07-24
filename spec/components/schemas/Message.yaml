@@ -1,0 +1,84 @@
+title: Message
+required:
+  - content
+  - destination_number
+type: object
+properties:
+  callback_url:
+    type: string
+    description: URL replies and delivery reports to this message will be pushed to
+    example: https://my.url.com
+  content:
+    maxLength: 5000
+    minLength: 1
+    type: string
+    description: Content of the message
+    example: Hello world!
+  destination_number:
+    maxLength: 15
+    minLength: 1
+    type: string
+    description: Destination number of the message
+    example: '+61491570156'
+  delivery_report:
+    type: boolean
+    description: Request a delivery report for this message
+    example: false
+  format:
+    $ref: ./_format-schemas.yaml#/Format
+  message_expiry_timestamp:
+    type: string
+    description: Date time after which the message expires and will not be sent
+    format: date-time
+    example: 11/3/2016 11:49:02 AM
+  metadata:
+    type: object
+    description: >-
+      Metadata for the message specified as a set of key value pairs, each key
+      can be up to 100 characters long and each value can be up to 256
+      characters long
+
+      ```
+
+      {
+         "myKey": "myValue",
+         "anotherKey": "anotherValue"
+      }
+
+      ```
+    example:
+      - myKey: myValue
+      - anotherKey: anotherValue
+  scheduled:
+    type: string
+    description: Scheduled delivery date time of the message
+    format: date-time
+    example: 11/3/2016 11:49:02 AM
+  source_number:
+    type: string
+    example: '+61491570156'
+  source_number_type:
+    $ref: ./SourceNumberType.yaml
+  message_id:
+    type: string
+    description: Unique ID of this message
+    format: uuid
+  status:
+    $ref: ./Status.yaml
+  media:
+    type: array
+    items:
+      type: string
+    description: >-
+      The media is used to specify a list of URLs of the media file(s) that you
+      are trying to send. Supported file formats include png, jpeg and gif.
+      format parameter must be set to MMS for this to work.
+    example:
+      - >-
+        https://images.pexels.com/photos/1018350/pexels-photo-1018350.jpeg?cs=srgb&dl=architecture-buildings-city-1018350.jpg
+  subject:
+    type: string
+    description: >-
+      The subject field is used to denote subject of the MMS message and has a
+      maximum size of 64 characters long
+    example: New Products

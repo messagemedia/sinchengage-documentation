@@ -1,0 +1,9 @@
+title: detailresponse
+type: object
+properties:
+  messages:
+    type: array
+    items:
+      $ref: ./DetailReportMessageRecord.yaml
+  pagination:
+    $ref: ../Paginate.yaml

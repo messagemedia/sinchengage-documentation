@@ -1,0 +1,17 @@
+title: ReportPeriod
+enum:
+  - TODAY
+  - YESTERDAY
+  - THIS_WEEK
+  - LAST_WEEK
+  - THIS_MONTH
+  - LAST_MONTH
+  - LAST_30_DAYS
+  - LAST_7_DAYS
+  - THIS_WEEKDAYS
+  - LAST_WEEKDAYS
+type: string
+description: >-
+  Automatically set a date range based on the period value. Can't be combined
+  with start_date and end_date.
+example: THIS_WEEK

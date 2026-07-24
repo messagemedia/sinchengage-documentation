@@ -1,0 +1,27 @@
+post:
+  security:
+    - basic_auth: []
+    - hmac_auth: []
+  tags:
+    - Messaging Reports
+  summary: Post async summary report
+  description: >-
+    Creates an asynchronous report summary containing total number of sent,
+    received and billing units.
+  operationId: PostAsyncSummaryReport
+  parameters: []
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/messaging-reports/asyncsummaryrequest.yaml
+  responses:
+    '202':
+      description: A list of all messages received in the specified time window
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/messaging-reports/asyncreportresponse.yaml
+  deprecated: false

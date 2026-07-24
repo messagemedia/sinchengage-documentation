@@ -1,0 +1,28 @@
+post:
+  security:
+    - basic_auth: []
+    - hmac_auth: []
+  tags:
+    - Messaging Reports
+  summary: Post async detail report
+  description: >-
+    Generates an asynchronous report listing all sent and/or received messages
+    within a specified time period.
+  operationId: PostAsyncDetailReport
+  parameters: []
+  requestBody:
+    description: ''
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/messaging-reports/asyncsentmessagesdetailrequest.yaml
+    required: true
+  responses:
+    '202':
+      description: A list of all messages received in the specified time window
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/messaging-reports/asyncreportresponse.yaml
+  deprecated: false

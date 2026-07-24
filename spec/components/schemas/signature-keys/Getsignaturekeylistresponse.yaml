@@ -1,0 +1,24 @@
+title: Getsignaturekeylistresponse
+type: object
+properties:
+  key_id:
+    type: string
+    example: 7ca628a8-08b0-4e42-aeb8-960b37049c31
+  cipher:
+    type: string
+    example: RSA
+  digest:
+    type: string
+    example: SHA224
+  created:
+    type: string
+    example: '2018-01-18T10:16:12.364Z'
+  enabled:
+    type: boolean
+    example: false
+example:
+  key_id: 7ca628a8-08b0-4e42-aeb8-960b37049c31
+  cipher: RSA
+  digest: SHA224
+  created: '2018-01-18T10:16:12.364Z'
+  enabled: true

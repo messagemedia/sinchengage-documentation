@@ -1,0 +1,51 @@
+get:
+  security:
+    - basic_auth: []
+    - hmac_auth: []
+  tags:
+    - Messaging Reports
+  summary: Get scheduled report by id
+  description: Retrieves a scheduled report by providing its id.
+  operationId: GetScheduledReport
+  parameters:
+    - name: scheduled_id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: The ID of the scheduled report to retrieve.
+      example: e6fb8282-c7c3-4367-8590-6c77ddb11c3e
+  responses:
+    '200':
+      description: The scheduled report matching the provided ID.
+      headers: {}
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/messaging-reports/scheduledreport.yaml
+    '404':
+      description: Scheduled report not found.
+  deprecated: false
+delete:
+  security:
+    - basic_auth: []
+    - hmac_auth: []
+  tags:
+    - Messaging Reports
+  summary: Delete scheduled report by id
+  description: Deletes a scheduled report by providing its id.
+  operationId: DeleteScheduledReport
+  parameters:
+    - name: scheduled_id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: The ID of the scheduled report to delete.
+      example: e6fb8282-c7c3-4367-8590-6c77ddb11c3e
+  responses:
+    '202':
+      description: An empty response indicating the report has been deleted.
+    '404':
+      description: Scheduled report not found.
+  deprecated: false

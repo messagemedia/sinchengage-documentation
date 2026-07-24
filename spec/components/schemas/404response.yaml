@@ -1,0 +1,9 @@
+title: Resource not found
+required:
+  - message
+type: object
+properties:
+  message:
+    type: string
+example:
+  message: Resource not found.

@@ -1,0 +1,22 @@
+required:
+  - content
+  - totalElements
+type: object
+properties:
+  content:
+    type: array
+    description: Page content and number of elements is restricted by page size
+    items:
+      $ref: ./ContactData.yaml
+  nextPageToken:
+    type: string
+    description: Pagination token to retrieve the next page
+  prevPageToken:
+    type: string
+    description: Pagination token to retrieve the previous page
+  totalElements:
+    type: integer
+    description: Total number of elements
+    format: int64
+    example: 25
+description: Page token representation for search result

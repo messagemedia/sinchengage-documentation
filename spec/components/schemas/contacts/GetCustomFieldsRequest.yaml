@@ -1,0 +1,21 @@
+type: object
+properties:
+  nextPageToken:
+    type: string
+  prevPageToken:
+    type: string
+  pageSize:
+    maximum: 1000
+    type: integer
+    format: int32
+  customFieldIds:
+    type: array
+    items:
+      type: string
+      format: uuid
+      example: 025e93d3-051b-43f9-b12e-4b5842228dee
+  label:
+    type: string
+  mergeTag:
+    type: string
+description: Get custom fields page filter

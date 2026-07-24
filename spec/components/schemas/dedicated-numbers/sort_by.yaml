@@ -1,0 +1,13 @@
+title: sort_by
+enum:
+  - ACCOUNT
+  - ACTION
+  - DESTINATION_ADDRESS
+  - DESTINATION_ADDRESS_COUNTRY
+  - FORMAT
+  - SOURCE_ADDRESS
+  - SOURCE_ADDRESS_COUNTRY
+  - TIMESTAMP
+type: string
+description: Field to sort results set by
+example: ACCOUNT
