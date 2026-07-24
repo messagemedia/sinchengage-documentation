@@ -15,7 +15,7 @@ OpenAPI specification for Sinch Engage (split across an entry file, paths, and c
 |------|---------|
 | `/spec/openapi.yaml` | Entry document: `info`, `tags`, `servers`, path `$ref`s, and selected component `$ref`s. |
 | `/spec/paths/` | One YAML file per API path (operations live here). |
-| `/spec/components/` | Shared `schemas/`, `responses/`, `headers/`, and `securitySchemes/`. |
+| `/spec/components/` | Shared `schemas/`, `responses/`, and `headers/`. (`securitySchemes` stay inline in `openapi.yaml`.) |
 | `/spec/code_samples/` | Per-language request samples, mapped onto operations at build time. |
 | `/spec/README.md` | Notes about the spec layout. |
 
@@ -56,7 +56,6 @@ spec/
       ...                            # other shared schemas stay at this level
     responses/
     headers/
-    securitySchemes/
   code_samples/
     JavaScript/v1@messages/post.js
 ```

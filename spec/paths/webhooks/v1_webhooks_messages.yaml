@@ -198,7 +198,7 @@ post:
 
     |:--|--|--|--:|
 
-    | **Service Type**  | $type| `SMS` | `DR` `MO` `MO MMS` |
+    | **Service Type**  | $format, $type *- `$type` will be deprecated in the future; use `$format` instead*| `SMS` | `DR` `MO` `MO MMS` |
 
     | **Message ID**  | $mtId, $messageId|
     `877c19ef-fa2e-4cec-827a-e1df9b5509f7` | `DR` `MO` `MO MMS`|
