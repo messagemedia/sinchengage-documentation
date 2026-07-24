@@ -15,6 +15,8 @@ get:
       explode: true
       schema:
         type: string
+        example: "20"
+      example: "20"
     - name: page_token
       in: query
       description: Token to fetch the next page
@@ -22,9 +24,11 @@ get:
       explode: true
       schema:
         type: string
+        example: eyJwYWdlIjoyfQ
+      example: eyJwYWdlIjoyfQ
   responses:
-    '200':
-      description: ''
+    "200":
+      description: Successful response.
       headers: {}
       content:
         application/json:
@@ -42,6 +46,8 @@ get:
               page: 1
               page_size: 5
               total_count: 3
-    '402':
-      description: ''
+    "402":
+      description: Payment required.
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false

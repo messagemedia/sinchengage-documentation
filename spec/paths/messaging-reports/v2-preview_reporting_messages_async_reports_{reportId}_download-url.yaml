@@ -7,9 +7,8 @@ get:
     - Messaging Reports
   summary: Get async report download URL
   description: >-
-    Returns a temporary pre-signed URL for downloading the generated report. The
-    URL allows customers to securely download the report file directly using the
-    provided reportId.
+    Returns a temporary pre-signed URL for downloading the generated report. The URL allows
+    customers to securely download the report file directly using the provided reportId.
   operationId: GetAsyncReportDownloadUrl
   parameters:
     - name: reportId
@@ -21,14 +20,17 @@ get:
         type: string
         format: uuid
         example: 51f0097f-90b2-4a59-ad88-a0fd93abaa82
+      example: f56b5806-f732-4693-b87a-90b66a7d7bfc
   responses:
-    '200':
+    "200":
       description: A pre-signed URL for downloading the report.
       headers: {}
       content:
         application/json:
           schema:
             $ref: ../../components/schemas/messaging-reports/presignedurlresponse.yaml
-    '404':
+    "404":
       description: Report not found.
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false

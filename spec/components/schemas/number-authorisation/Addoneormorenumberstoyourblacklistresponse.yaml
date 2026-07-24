@@ -10,7 +10,7 @@ properties:
     type: array
     items:
       type: string
-    description: ''
+    description: List of phone numbers.
 example:
   uri: /v1/number_authorisation/mt/blacklist
   numbers:

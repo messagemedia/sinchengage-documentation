@@ -6,15 +6,14 @@ get:
     - Number Authorisation
   summary: Check if one or several numbers are currently blacklisted
   description: >-
-    This endpoints lists for each requested number if you are authorised (which
-    means the number is not blacklisted) to send to this number.
+    This endpoints lists for each requested number if you are authorised (which means the number is
+    not blacklisted) to send to this number.
 
     In the example given +61491570157 is on the blacklist.
 
-    NOTE: We do this call for you internally no matter what. Use this endpoint
-    only if you want to have some indication upfront. If you send a message
-    which is on the blacklist, we issue a delivery receipt with the appropriate
-    status code.
+    NOTE: We do this call for you internally no matter what. Use this endpoint only if you want to
+    have some indication upfront. If you send a message which is on the blacklist, we issue a
+    delivery receipt with the appropriate status code.
   operationId: CheckIfOneOrSeveralNumbersAreCurrentlyBlacklisted
   parameters:
     - in: path
@@ -25,12 +24,18 @@ get:
         minimum: 1
         items:
           type: string
+        example:
+          - "+61491570156"
+          - "+61491570157"
       description: >-
         one or more numbers in international format seperate by a comma, e.g.
         ```+61491570156,+61491570157```
+      example:
+        - "+61491570156"
+        - "+61491570157"
   responses:
-    '200':
-      description: ''
+    "200":
+      description: Successful response.
       headers: {}
       content:
         application/json:
@@ -40,8 +45,22 @@ get:
           example:
             uri: /v1/number_authorisation/is_authorised/+61491570156,+61491570157
             numbers:
-              - number: '61491570156'
+              - number: "61491570156"
                 authorised: true
-              - number: '61491570157'
+              - number: "61491570157"
                 authorised: false
+    "400":
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/400response.yaml
+    "403":
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/403response.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false

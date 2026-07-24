@@ -8,34 +8,35 @@ delete:
   description: >-
     Delete a webhook that was previously created for the connected account.
 
-    A webhook can be cancelled by appending the UUID of the webhook to the
-    endpoint and submitting a DELETE request to the /webhooks/messages endpoint.
+    A webhook can be cancelled by appending the UUID of the webhook to the endpoint and submitting a
+    DELETE request to the /webhooks/messages endpoint.
 
 
-    A successful request to the retrieve webhook endpoint will return a null
-    response.
+    A successful request to the retrieve webhook endpoint will return a null response.
 
 
-    *Note: Only pre-created webhooks can be deleted. If an invalid or non
-    existent webhook ID parameter is specified in the request, then a HTTP 404
-    Not Found response will be returned.*
+    *Note: Only pre-created webhooks can be deleted. If an invalid or non existent webhook ID
+    parameter is specified in the request, then a HTTP 404 Not Found response will be returned.*
   operationId: DeleteWebhook
   parameters:
     - name: webhookId
       in: path
-      description: ''
+      description: Unique identifier of the webhook.
       required: true
       style: simple
       schema:
         type: string
         format: uuid
         example: a7f11bb0-f299-4861-a5ca-9b29d04bc5ad
+      example: 7ca628a8-08b0-4e42-aeb8-960b37049c31
   responses:
-    '204':
+    "204":
       description: Webhook deleted successfully
       headers: {}
-    '404':
-      description: ''
+    "404":
+      description: Not found.
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
 patch:
   security:
@@ -45,13 +46,11 @@ patch:
     - Webhooks Management
   summary: Update webhook
   description: >-
-    Update a webhook. You can update individual attributes or all of them by
-    submitting a PATCH request to the /webhooks/messages endpoint (the same
-    endpoint used above to delete a webhook)
+    Update a webhook. You can update individual attributes or all of them by submitting a PATCH
+    request to the /webhooks/messages endpoint (the same endpoint used above to delete a webhook)
 
 
-    A successful request to the retrieve webhook endpoint will return a response
-    body as follows:
+    A successful request to the retrieve webhook endpoint will return a response body as follows:
 
 
     ```
@@ -71,22 +70,22 @@ patch:
     ```
 
 
-    *Note: Only pre-created webhooks can be deleted. If an invalid or non
-    existent webhook ID parameter is specified in the request, then a HTTP 404
-    Not Found response will be returned.*
+    *Note: Only pre-created webhooks can be deleted. If an invalid or non existent webhook ID
+    parameter is specified in the request, then a HTTP 404 Not Found response will be returned.*
   operationId: UpdateWebhook
   parameters:
     - name: webhookId
       in: path
-      description: ''
+      description: Unique identifier of the webhook.
       required: true
       style: simple
       schema:
         type: string
         format: uuid
         example: a7f11bb0-f299-4861-a5ca-9b29d04bc5ad
+      example: 7ca628a8-08b0-4e42-aeb8-960b37049c31
   requestBody:
-    description: ''
+    description: Request body.
     content:
       application/json:
         schema:
@@ -97,10 +96,10 @@ patch:
           encoding: FORM_ENCODED
           events:
             - ENROUTE_DR
-          template: '{"id":"$mtId", "status":"$statusCode"}'
+          template: "{\"id\":\"$mtId\", \"status\":\"$statusCode\"}"
     required: true
   responses:
-    '200':
+    "200":
       description: Webhook updated successfully
       headers: {}
       content:
@@ -108,7 +107,7 @@ patch:
           schema:
             type: object
             description: Webhook updated successfully
-    '400':
+    "400":
       description: Unexpected error in API call. See HTTP response body for details.
       content:
         application/json:
@@ -116,6 +115,8 @@ patch:
             $ref: ../../components/schemas/webhooks/UpdateWebhook400response.yaml
           example:
             message: Something went wrong. Please try again later.
-    '404':
-      description: ''
+    "404":
+      description: Not found.
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false

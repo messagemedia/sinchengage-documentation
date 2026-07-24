@@ -6,23 +6,37 @@ post:
     - Messaging Reports
   summary: Post async detail report
   description: >-
-    Generates an asynchronous report listing all sent and/or received messages
-    within a specified time period.
+    Generates an asynchronous report listing all sent and/or received messages within a specified
+    time period.
   operationId: PostAsyncDetailReport
   parameters: []
   requestBody:
-    description: ''
+    description: Request body.
     content:
       application/json:
         schema:
           $ref: ../../components/schemas/messaging-reports/asyncsentmessagesdetailrequest.yaml
     required: true
   responses:
-    '202':
+    "202":
       description: A list of all messages received in the specified time window
       headers: {}
       content:
         application/json:
           schema:
             $ref: ../../components/schemas/messaging-reports/asyncreportresponse.yaml
+    "400":
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/400response.yaml
+    "403":
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/403response.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false

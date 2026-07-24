@@ -6,12 +6,12 @@ get:
     - Signature Key Management
   summary: Get signature key detail
   description: >-
-    Retrieve the current detail of a signature key using the key_id returned in
-    the ```create signature key``` endpoint.
+    Retrieve the current detail of a signature key using the key_id returned in the ```create
+    signature key``` endpoint.
 
 
-    A successful request for the ```get signature key detail``` endpoint will
-    return a response body as follows:
+    A successful request for the ```get signature key detail``` endpoint will return a response body
+    as follows:
 
 
     ```json
@@ -27,19 +27,21 @@ get:
     ```
 
 
-    *Note: If an invalid or non-existent key_id parameter is specified in the
-    request, then an HTTP 404 Not Found response will be returned*
+    *Note: If an invalid or non-existent key_id parameter is specified in the request, then an HTTP
+    404 Not Found response will be returned*
   operationId: GetSignatureKeyDetail
   parameters:
     - name: key_id
       in: path
-      description: ''
+      description: Unique identifier of the signature key.
       required: true
       style: simple
       schema:
         type: string
+        example: 7ca628a8-08b0-4e42-aeb8-960b37049c31
+      example: 7ca628a8-08b0-4e42-aeb8-960b37049c31
   responses:
-    '200':
+    "200":
       description: The detail of signature key.
       headers: {}
       content:
@@ -50,9 +52,9 @@ get:
             key_id: 7ca628a8-08b0-4e42-aeb8-960b37049c31
             cipher: RSA
             digest: SHA224
-            created: '2018-01-18T10:16:12.364Z'
+            created: "2018-01-18T10:16:12.364Z"
             enabled: false
-    '400':
+    "400":
       description: Unexpected error in API call. See HTTP response body for details.
       content:
         application/json:
@@ -62,7 +64,7 @@ get:
             message: Bad Request
             details:
               - key_id property value is invalid
-    '403':
+    "403":
       description: Unexpected error in API call. See HTTP response body for details.
       content:
         application/json:
@@ -71,7 +73,7 @@ get:
               ../../components/schemas/signature-keys/Disablethecurrentenabledsignaturekey.403response.yaml
           example:
             message: This feature has not been enabled in your account.
-    '404':
+    "404":
       description: Unexpected error in API call. See HTTP response body for details.
       content:
         application/json:
@@ -80,6 +82,8 @@ get:
               ../../components/schemas/signature-keys/Disablethecurrentenabledsignaturekey.403response.yaml
           example:
             message: Entity not found
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
 delete:
   security:
@@ -89,30 +93,31 @@ delete:
     - Signature Key Management
   summary: Delete signature key
   description: >-
-    Delete a signature key using the key_id returned in the ```create signature
-    key``` endpoint.
+    Delete a signature key using the key_id returned in the ```create signature key``` endpoint.
 
 
-    A successful request for the ```delete signature key``` endpoint will return
-    an empty response body.
+    A successful request for the ```delete signature key``` endpoint will return an empty response
+    body.
 
 
-    *Note: If an invalid or non-existent key_id parameter is specified in the
-    request, then an HTTP 404 Not Found response will be returned*
+    *Note: If an invalid or non-existent key_id parameter is specified in the request, then an HTTP
+    404 Not Found response will be returned*
   operationId: DeleteSignatureKey
   parameters:
     - name: key_id
       in: path
-      description: ''
+      description: Unique identifier of the signature key.
       required: true
       style: simple
       schema:
         type: string
+        example: 7ca628a8-08b0-4e42-aeb8-960b37049c31
+      example: 7ca628a8-08b0-4e42-aeb8-960b37049c31
   responses:
-    '200':
+    "200":
       description: The signature key has been deleted.
       headers: {}
-    '403':
+    "403":
       description: Unexpected error in API call. See HTTP response body for details.
       content:
         application/json:
@@ -121,7 +126,7 @@ delete:
               ../../components/schemas/signature-keys/Disablethecurrentenabledsignaturekey.403response.yaml
           example:
             message: This feature has not been enabled in your account.
-    '404':
+    "404":
       description: Unexpected error in API call. See HTTP response body for details.
       content:
         application/json:
@@ -130,4 +135,6 @@ delete:
               ../../components/schemas/signature-keys/Disablethecurrentenabledsignaturekey.403response.yaml
           example:
             message: Entity not found
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false

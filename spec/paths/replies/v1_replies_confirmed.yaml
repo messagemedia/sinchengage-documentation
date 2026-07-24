@@ -6,17 +6,15 @@ post:
     - Replies
   summary: Confirm replies as received
   description: >-
-    Mark a reply message as confirmed so it is no longer returned in check
-    replies requests.
+    Mark a reply message as confirmed so it is no longer returned in check replies requests.
 
-    The confirm replies endpoint is intended to be used in conjunction with the
-    check replies endpoint
+    The confirm replies endpoint is intended to be used in conjunction with the check replies
+    endpoint
 
-    to allow for robust processing of reply messages. Once one or more reply
-    messages have been processed
+    to allow for robust processing of reply messages. Once one or more reply messages have been
+    processed
 
-    they can then be confirmed using the confirm replies endpoint so they are no
-    longer returned in
+    they can then be confirmed using the confirm replies endpoint so they are no longer returned in
 
     subsequent check replies requests.
 
@@ -34,12 +32,12 @@ post:
 
     ```
 
-    The expiry date for getting an entity is 45 days. Up to 100 replies can be
-    confirmed in a single confirm replies request.
+    The expiry date for getting an entity is 45 days. Up to 100 replies can be confirmed in a single
+    confirm replies request.
   operationId: ConfirmRepliesAsReceived
   parameters: []
   requestBody:
-    description: ''
+    description: Request body.
     content:
       application/json:
         schema:
@@ -51,7 +49,7 @@ post:
             - ba28e94b-c83d-4759-98e7-ff9c7edb87a1
     required: true
   responses:
-    '202':
+    "202":
       description: Requested replies will be marked as confirmed
       headers: {}
       content:
@@ -59,22 +57,24 @@ post:
           schema:
             type: object
             description: Requested replies will be marked as confirmed
-    '400':
+    "400":
       description: Bad request
       content:
         application/json:
           schema:
             $ref: ../../components/schemas/400response.yaml
-    '403':
+    "403":
       description: Unauthorised
       content:
         application/json:
           schema:
             $ref: ../../components/schemas/403response.yaml
-    '404':
+    "404":
       description: Resource not found
       content:
         application/json:
           schema:
             $ref: ../../components/schemas/404response.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false

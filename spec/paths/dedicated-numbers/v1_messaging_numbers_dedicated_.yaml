@@ -10,9 +10,7 @@ get:
   parameters:
     - name: country
       in: query
-      description: >-
-        ISO_3166 country code, 2 character code to filter available numbers by
-        country
+      description: ISO_3166 country code, 2 character code to filter available numbers by country
       style: form
       explode: true
       schema:
@@ -25,7 +23,7 @@ get:
       explode: true
       schema:
         type: string
-        example: '223344'
+        example: "223344"
     - name: page_size
       in: query
       description: number of results returned per page, default 50
@@ -35,6 +33,7 @@ get:
         type: integer
         format: int32
         example: 3
+      example: 20
     - name: service_types
       in: query
       description: filter results to include numbers with certain capabilities
@@ -45,16 +44,17 @@ get:
     - name: token
       in: query
       description: >-
-        In paginated data the original request will return with a "next_token"
-        attribute. This token must be entered into subsequent call in the
-        "token" query parameter to obtain the next set of records.
+        In paginated data the original request will return with a "next_token" attribute. This token
+        must be entered into subsequent call in the "token" query parameter to obtain the next set
+        of records.
       style: form
       explode: true
       schema:
         type: string
         example: example
+      example: eyJwYWdlIjoyfQ
   responses:
-    '200':
+    "200":
       description: OK
       headers: {}
       content:
@@ -69,14 +69,14 @@ get:
               page_count: 1
             data:
               - id: 03cf54ad-a4a3-4cd1-afd5-e0ca2cf158a3
-                phone_number: '61436489205'
+                phone_number: "61436489205"
                 country: AU
                 type: MOBILE
                 classification: BRONZE
-                available_after: '2019-08-06T23:56:15.633Z'
+                available_after: "2019-08-06T23:56:15.633Z"
                 capabilities:
                   - SMS
-    '403':
+    "403":
       description: Unexpected error in API call. See HTTP response body for details.
       content:
         application/json:
@@ -84,4 +84,6 @@ get:
             $ref: ../../components/schemas/403response.yaml
           example:
             message: Invalid authentication credentials
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false

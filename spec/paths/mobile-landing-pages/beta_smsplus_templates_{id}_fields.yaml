@@ -15,14 +15,17 @@ get:
       style: simple
       schema:
         type: string
+        example: 7ca628a8-08b0-4e42-aeb8-960b37049c31
+      example: 7ca628a8-08b0-4e42-aeb8-960b37049c31
   responses:
-    '200':
+    "200":
       description: The list of template parameters required in this template
       headers: {}
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/mobile-landing-pages/GetTemplatesFieldsDefinitionresponse.yaml
+            $ref: >-
+              ../../components/schemas/mobile-landing-pages/GetTemplatesFieldsDefinitionresponse.yaml
           example:
             fields:
               fontFamilyURL1:
@@ -83,6 +86,8 @@ get:
                 type: TEXT
               buttonFontFamily:
                 type: TEXT
-    '402':
+    "402":
       description: Account is not postpaid, or does not have Mobile Landing Pages Enabled.
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false

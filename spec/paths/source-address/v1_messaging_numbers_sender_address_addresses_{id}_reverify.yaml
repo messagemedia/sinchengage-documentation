@@ -3,8 +3,7 @@ post:
     - Source Address
   summary: Re-verify Sender Address
   description: >
-    The below table defines the allowed combination of `sender_address_type` and
-    `usage_type` values
+    The below table defines the allowed combination of `sender_address_type` and `usage_type` values
 
 
     | Description      | sender_address_type | usage_type    |
@@ -14,11 +13,10 @@ post:
     | Own Number       | INTERNATIONAL       | OWN_NUMBER    |
 
 
-    OWN_NUMBER Sender Addresses require reverification every 12 months to allow
-    continued use.
+    OWN_NUMBER Sender Addresses require reverification every 12 months to allow continued use.
 
-    The reverification process is quite similar to the original verification
-    process for the Sender Address, and requires a fresh 2FA check.
+    The reverification process is quite similar to the original verification process for the Sender
+    Address, and requires a fresh 2FA check.
 
 
     To reverify an OWN_NUMBER Sender Address:
@@ -37,31 +35,35 @@ post:
       style: simple
       schema:
         type: string
+        example: 7ca628a8-08b0-4e42-aeb8-960b37049c31
+      example: 7ca628a8-08b0-4e42-aeb8-960b37049c31
   responses:
-    '200':
+    "200":
       description: OK
       headers: {}
       content:
         application/json:
           schema:
             $ref: ../../components/schemas/source-address/ReVerifySenderAddressRequestItem.yaml
-    '400':
+    "400":
       description: Bad Request
       content:
         application/json:
           schema:
             $ref: ../../components/schemas/400response.yaml
-    '401':
+    "401":
       description: Unauthorized
-    '403':
+    "403":
       description: Forbidden
       content:
         application/json:
           schema:
             $ref: ../../components/schemas/403response.yaml
-    '404':
+    "404":
       description: Resource not found
       content:
         application/json:
           schema:
             $ref: ../../components/schemas/404response.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml

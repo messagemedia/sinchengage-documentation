@@ -44,6 +44,50 @@ info:
     access](https://support.app.sinch.com/hc/en-us/categories/10516535548943-Sinch-Engage-Developer-Guides)
 
 
+    # API versioning
+
+    Path prefixes indicate the stability of each surface:
+
+
+    - `/v1` — generally available Engage messaging and account APIs
+
+
+    - `/api/v1` — Contacts API (versioned under its own `/api` prefix)
+
+
+    - `/v2-preview` — preview messaging-reports endpoints; behaviour may change
+      before GA
+
+
+    - `/beta` — Mobile Landing Pages and related beta features; subject to
+      change and may be region-limited
+
+
+    Prefer GA (`/v1`, `/api/v1`) paths for production integrations unless you
+    have explicitly opted into preview or beta features.
+
+
+    # Rate limits
+
+    Authenticated requests are rate limited per account. When a limit is
+    exceeded the API returns HTTP `429 Too Many Requests`. Back off and retry
+    with exponential delay; do not retry immediately in a tight loop. Exact
+    limits can vary by account and product — contact
+    [support@app.sinch.com](mailto:support@app.sinch.com) or your account
+    manager if you need higher throughput.
+
+
+    # Idempotency
+
+    Safe methods (`GET`, `HEAD`, `OPTIONS`) are idempotent. Creating or updating
+    resources with `POST`, `PUT`, `PATCH`, or `DELETE` is not automatically
+    idempotent unless documented on the operation. Retries of create requests
+    may produce duplicate resources (for example duplicate messages) unless your
+    integration uses account features such as De-Duplication or application-level
+    idempotency keys where available. Prefer confirming outcomes via message IDs,
+    delivery reports, or GET-by-id before re-submitting.
+
+
     # Features
 
     ###  De-Duplication 
@@ -85,7 +129,7 @@ info:
     ### Character Converter
 
     Characters in a message may not always fall within the GSM-7 supported
-    characterset, and when this occurs all 
+    character set, and when this occurs all 
 
     outbound messages will be encoded using UCS-2 leading to the customer being
     double-charged for the SMS. Character Converter 
@@ -93,7 +137,7 @@ info:
     can help you avoid being double-charged for your SMS by converting all
     characters into the GSM-7 format ensuring you always 
 
-    get the maximum characters into an SMS. Bear in my mind, this will downgrade
+    get the maximum characters into an SMS. Bear in mind, this will downgrade
     all your unicode characters so for instance, 
 
     your emojis will be translated into a string of unknown characters (eg: �). 
@@ -350,7 +394,7 @@ tags:
             {
               "content": "Hello World",
               "destination_number": "+61491570156",
-              “delivery_report”: true
+              "delivery_report": true
             }
           ]
         } 
@@ -382,17 +426,17 @@ tags:
 
       Simply put, a sender ID is whatever you send a text message from. This is
       typically either a phone number, or a string of alphanumeric characters
-      (commonly referred to as an “Alpha Tag”).
+      (commonly referred to as an "Alpha Tag").
 
 
       With regulations surrounding SMS becoming much stricter all over the world
-      in an effect to combat scam SMS messages, Sinch is working on “Trusted
-      Sender ID” a concept that allows customers to request a Sender ID and have
+      in an effect to combat scam SMS messages, Sinch is working on "Trusted
+      Sender ID" a concept that allows customers to request a Sender ID and have
       it verified.
 
 
       Currently, Trusted Sender ID supports two types of Sender ID: Alpha Tags
-      and Personal (“Own”) Numbers. It will likely be extended to support
+      and Personal ("Own") Numbers. It will likely be extended to support
       additional number types, such as TFN and 10DLC where additional
       registration, (external) verification, and overall account whitelist of
       numbers will be required.
@@ -403,7 +447,7 @@ tags:
         
         Alpha tags are made up of 3-11 letters and/or numbers. Alpha tags must be registered and approved before sending and must have clear relevancy to your business and/or use case.
         
-        Alpha Tags appear as the “From” number when you receive messages.
+        Alpha Tags appear as the "From" number when you receive messages.
         
         A good alpha tag meets at least one of the following valid use cases: 
         * Business names
@@ -429,7 +473,7 @@ tags:
         Once the alpha tag has been approved, you can begin using it as a Sender ID for SMS messages.
 
         ### Personal Number
-        A personal number, or “My Own Number”, is a number that you own rather than one provided to you by Sinch. Typically, this is your personal mobile phone number. You may wish to register this number for use with our service so that you can easily send messages from a number already associated with your organisation.
+        A personal number, or "My Own Number", is a number that you own rather than one provided to you by Sinch. Typically, this is your personal mobile phone number. You may wish to register this number for use with our service so that you can easily send messages from a number already associated with your organisation.
         
         Before you can send messages using your own number, you need to verify that you have a right to use that number. Ensuring you have a right to use a phone number is an important regulatory requirement, aiming to prevent scam, spam, and misuse of messaging services.
 
@@ -487,14 +531,14 @@ tags:
 
 
       To include billing units in your delivery receipts via Webhooks, ensure
-      that the switch "Enable billing units in Delivery Reports and Callbacks”
+      that the switch "Enable billing units in Delivery Reports and Callbacks"
       is enabled in the API settings of your account.
 
 
       For delivery reports or changes in the status of a message, the POST
       request to the specified URL will be as follows:
         
-        _Note, multiple delivery report notifications will be recieved for a single message._
+        _Note, multiple delivery report notifications will be received for a single message._
 
       ```json
 
@@ -640,7 +684,7 @@ tags:
         
         * `405`: Message cancelled or deleted by provider.
   - name: Replies
-    description: ''
+    description: Endpoints for checking and confirming inbound message replies (MO) received by your account.
   - name: Number Authorisation
     description: >-
       The number authorisation API allows you to manage your blacklists. Sinch
@@ -912,8 +956,8 @@ tags:
       text|  Indicate the color of bar code. Use a color name(eg. 'red',
       'green'), or a hex value(eg. '#F0F8FF') |
 
-      | pageText | |html| For personalisation, use the following format: “Hi
-      ${firstName}, thanks for visiting…”|
+      | pageText | |html| For personalisation, use the following format: "Hi
+      ${firstName}, thanks for visiting…"|
 
       | pageTextColor|Optional - each template has it's own default value|
       text|  Indicate the color of page text. Use a color name(eg. 'red',
@@ -923,8 +967,8 @@ tags:
       pixels, height: 375 pixels, size: less than 300 kB, type: png, gif, or
       jpg.|
 
-      | headline | |text| For personalisation, use the following format: “Hi
-      ${firstName}, thanks for visiting…”. Specifications: 60 characters or less
+      | headline | |text| For personalisation, use the following format: "Hi
+      ${firstName}, thanks for visiting…". Specifications: 60 characters or less
       recommended|
 
       | headlineColor|Optional - each template has it's own default value|
@@ -938,13 +982,13 @@ tags:
       height: 120 pixels, size: less than 300 kB, type: png, gif, or jpg|
 
       | logoLink | Optional|url| For personalisation, use the following format:
-      “https://example.com/?cid=${customerId}”|
+      "https://example.com/?cid=${customerId}"|
 
       | primaryButtonLink | |url| For personalisation, use the following format:
-      “https://example.com/?cid=${customerId}”|
+      "https://example.com/?cid=${customerId}"|
 
       | primaryButtonText | |text| For personalisation, use the following
-      format: “${firstName}, shop now”. Specifications: 36 characters or less
+      format: "${firstName}, shop now". Specifications: 36 characters or less
       recommended |
 
       | primaryButtonTextColor|Optional - each template has it's own default
@@ -957,11 +1001,11 @@ tags:
 
       | secondaryButtonLink | Optional - depends on MLP template |url| For
       personalisation, use the following format:
-      “https://example.com/?cid=${customerId}”|
+      "https://example.com/?cid=${customerId}"|
 
       | secondaryButtonText | Optional - depends on MLP template |text| For
-      personalisation, use the following format: “Hi ${firstName}, thanks for
-      visiting…”. Specifications: 36 characters or less recommended |
+      personalisation, use the following format: "Hi ${firstName}, thanks for
+      visiting…". Specifications: 36 characters or less recommended |
 
       | secondaryButtonTextColor|Optional - each template has it's own default
       value| text|  Indicate the color of the secondary button text. Use a color
@@ -1191,6 +1235,8 @@ components:
       $ref: ./components/responses/UnsupportedMediaType.yaml
     PaymentRequired:
       $ref: ./components/responses/PaymentRequired.yaml
+    TooManyRequests:
+      $ref: ./components/responses/TooManyRequests.yaml
   headers:
     ExpiresAfter:
       $ref: ./components/headers/ExpiresAfter.yaml

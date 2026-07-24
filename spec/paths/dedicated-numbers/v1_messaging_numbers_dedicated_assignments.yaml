@@ -5,7 +5,7 @@ get:
   tags:
     - Dedicated Numbers
   summary: Get assigned numbers
-  description: ''
+  description: Retrieves the list of assigned dedicated numbers.
   operationId: GetAssignedNumbers
   parameters:
     - name: page_size
@@ -17,17 +17,19 @@ get:
         type: integer
         format: int32
         example: 3
+      example: 20
     - name: token
       in: query
       description: >-
-        In paginated data the original request will return with a "next_token"
-        attribute. This token must be entered into subsequent call in the
-        "token" query parameter to obtain the next set of records.
+        In paginated data the original request will return with a "next_token" attribute. This token
+        must be entered into subsequent call in the "token" query parameter to obtain the next set
+        of records.
       style: form
       explode: true
       schema:
         type: string
         example: example
+      example: eyJwYWdlIjoyfQ
     - name: number_id
       in: query
       description: Unique identifier of a specific number
@@ -43,12 +45,12 @@ get:
       explode: true
       schema:
         type: string
-        example: '223344'
+        example: "223344"
     - name: country
       in: query
       description: >-
-        Filter results by ISO_3166 country code, 2 character code to filter
-        available numbers by country
+        Filter results by ISO_3166 country code, 2 character code to filter available numbers by
+        country
       style: form
       explode: true
       schema:
@@ -57,8 +59,8 @@ get:
     - name: type
       in: query
       description: >-
-        Filter results by Number type. When both `type` and `types` are
-        provided, `types` will take precedence, and `type` will be ignored.
+        Filter results by Number type. When both `type` and `types` are provided, `types` will take
+        precedence, and `type` will be ignored.
       style: form
       explode: true
       schema:
@@ -99,6 +101,7 @@ get:
       explode: true
       schema:
         $ref: ../../components/schemas/dedicated-numbers/sort_by.yaml
+      example: TIMESTAMP
     - name: sort_direction
       in: query
       description: Sort direction
@@ -106,16 +109,18 @@ get:
       explode: true
       schema:
         $ref: ../../components/schemas/dedicated-numbers/sort_direction.yaml
+      example: ASCENDING
     - name: Accept
       in: header
-      description: ''
+      description: Requested response media type.
       required: true
       style: simple
       schema:
         type: string
         example: application/json;charset=UTF-8
+      example: application/json
   responses:
-    '200':
+    "200":
       description: OK
       headers: {}
       content:
@@ -137,9 +142,9 @@ get:
                   id: be3cb602-7c00-4c87-ae4b-b8defc04f179
                   number_id: b9ee3fe8-2c20-47b1-96e9-c5d12d7ed985
                 number:
-                  number: '61436489205'
+                  number: "61436489205"
                   authorised: true
-    '403':
+    "403":
       description: Unauthorised
       content:
         application/json:
@@ -147,4 +152,6 @@ get:
             $ref: ../../components/schemas/403response.yaml
           example:
             message: Invalid authentication credentials
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false

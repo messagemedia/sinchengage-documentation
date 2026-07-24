@@ -6,21 +6,35 @@ post:
     - Messaging Reports
   summary: Post insight report
   description: >-
-    Create report summary containing total number of sent, received and billing
-    units, using pre-calculated data to improve performance.
+    Create report summary containing total number of sent, received and billing units, using
+    pre-calculated data to improve performance.
   operationId: PostInsightReport
   requestBody:
-    description: ''
+    description: Request body.
     content:
       application/json:
         schema:
           $ref: ../../components/schemas/messaging-reports/insightsrequest.yaml
   responses:
-    '200':
+    "200":
       description: A list of all messages received in the specified time window
       headers: {}
       content:
         application/json:
           schema:
             $ref: ../../components/schemas/messaging-reports/insightsresponse.yaml
+    "400":
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/400response.yaml
+    "403":
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/403response.yaml
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false

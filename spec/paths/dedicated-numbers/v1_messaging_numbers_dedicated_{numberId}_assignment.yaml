@@ -5,9 +5,7 @@ get:
   tags:
     - Dedicated Numbers
   summary: Get assignment
-  description: >-
-    Use this endpoint to view details of the assignment including the label and
-    metadata.
+  description: Use this endpoint to view details of the assignment including the label and metadata.
   operationId: GetAssignment
   parameters:
     - name: numberId
@@ -18,16 +16,18 @@ get:
       schema:
         type: string
         example: e2014bc7-5fed-4e27-bd8c-XXXXXXXXXXX
+      example: b9ee3fe8-2c20-47b1-96e9-c5d12d7ed985
     - name: Accept
       in: header
-      description: ''
+      description: Requested response media type.
       required: true
       style: simple
       schema:
         type: string
         example: application/json;charset=UTF-8
+      example: application/json
   responses:
-    '200':
+    "200":
       description: OK
       headers: {}
       content:
@@ -40,7 +40,7 @@ get:
             label: LabelTest0
             id: be3cb602-7c00-4c87-ae4b-b8defc04f179
             number_id: b9ee3fe8-2c20-47b1-96e9-c5d12d7ed985
-    '403':
+    "403":
       description: Unexpected error in API call. See HTTP response body for details.
       content:
         application/json:
@@ -48,7 +48,7 @@ get:
             $ref: ../../components/schemas/403response.yaml
           example:
             message: Invalid authentication credentials
-    '404':
+    "404":
       description: Unexpected error in API call. See HTTP response body for details.
       content:
         application/json:
@@ -56,6 +56,8 @@ get:
             $ref: ../../components/schemas/404response.yaml
           example:
             message: Not found
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
 post:
   security:
@@ -72,8 +74,8 @@ post:
     for this number assignment.
 
 
-    If you receive a *conflict* error then the number that you have selected is
-    unavailable for assignment. 
+    If you receive a *conflict* error then the number that you have selected is unavailable for
+    assignment. 
 
     This means that the number is either already assigned to another account, 
 
@@ -90,16 +92,18 @@ post:
       schema:
         type: string
         example: e2014bc7-5fed-4e27-bd8c-XXXXXXXXXXX
+      example: b9ee3fe8-2c20-47b1-96e9-c5d12d7ed985
     - name: Accept
       in: header
-      description: ''
+      description: Requested response media type.
       required: true
       style: simple
       schema:
         type: string
         example: application/json;charset=UTF-8
+      example: application/json
   requestBody:
-    description: ''
+    description: Request body.
     content:
       application/json:
         schema:
@@ -111,7 +115,7 @@ post:
             Key2: value2
     required: true
   responses:
-    '201':
+    "201":
       description: Created
       headers: {}
       content:
@@ -121,7 +125,7 @@ post:
           example:
             label: cillum irure
             number_id: et pariatur
-    '403':
+    "403":
       description: Unexpected error in API call. See HTTP response body for details.
       content:
         application/json:
@@ -129,7 +133,7 @@ post:
             $ref: ../../components/schemas/403response.yaml
           example:
             message: Invalid authentication credentials
-    '404':
+    "404":
       description: Unexpected error in API call. See HTTP response body for details.
       content:
         application/json:
@@ -137,6 +141,8 @@ post:
             $ref: ../../components/schemas/404response.yaml
           example:
             message: Not found
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
 delete:
   security:
@@ -156,16 +162,18 @@ delete:
       schema:
         type: string
         example: e2014bc7-5fed-4e27-bd8c-XXXXXXXXXXX
+      example: b9ee3fe8-2c20-47b1-96e9-c5d12d7ed985
     - name: Accept
       in: header
-      description: ''
+      description: Requested response media type.
       required: true
       style: simple
       schema:
         type: string
         example: application/json;charset=UTF-8
+      example: application/json
   responses:
-    '204':
+    "204":
       description: No Content
       headers: {}
       content:
@@ -174,7 +182,7 @@ delete:
             type: string
             description: No Content
             format: binary
-    '403':
+    "403":
       description: Unexpected error in API call. See HTTP response body for details.
       content:
         application/json:
@@ -182,6 +190,8 @@ delete:
             $ref: ../../components/schemas/403response.yaml
           example:
             message: Invalid authentication credentials
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
 patch:
   security:
@@ -191,9 +201,9 @@ patch:
     - Dedicated Numbers
   summary: Update assignment
   description: >-
-    Retain the dedicated number assignment, and edit or add additional metadata
-    or title information. You can exclude any data from the body of this request
-    that you do not want updated.
+    Retain the dedicated number assignment, and edit or add additional metadata or title
+    information. You can exclude any data from the body of this request that you do not want
+    updated.
   operationId: UpdateAssignment
   parameters:
     - name: numberId
@@ -204,16 +214,18 @@ patch:
       schema:
         type: string
         example: e2014bc7-5fed-4e27-bd8c-XXXXXXXXXXX
+      example: b9ee3fe8-2c20-47b1-96e9-c5d12d7ed985
     - name: Accept
       in: header
-      description: ''
+      description: Requested response media type.
       required: true
       style: simple
       schema:
         type: string
         example: application/json;charset=UTF-8
+      example: application/json
   requestBody:
-    description: ''
+    description: Request body.
     content:
       application/json:
         schema:
@@ -225,7 +237,7 @@ patch:
             Key2: value2
     required: true
   responses:
-    '204':
+    "204":
       description: OK
       headers: {}
       content:
@@ -235,7 +247,7 @@ patch:
           example:
             id: b06387c0-f4d9-4333-8657-c819bede79c3
             number_id: 073fb6bd-f054-4644-aada-8fb204145d77
-    '403':
+    "403":
       description: Unexpected error in API call. See HTTP response body for details.
       content:
         application/json:
@@ -243,4 +255,6 @@ patch:
             $ref: ../../components/schemas/403response.yaml
           example:
             message: Invalid authentication credentials
+    "429":
+      $ref: ../../components/responses/TooManyRequests.yaml
   deprecated: false
