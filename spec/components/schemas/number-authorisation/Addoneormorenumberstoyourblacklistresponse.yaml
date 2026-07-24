@@ -1,4 +1,4 @@
-title: Addoneormorenumberstoyourbacklistresponse
+title: Addoneormorenumberstoyourblacklistresponse
 required:
   - uri
   - numbers
@@ -14,5 +14,5 @@ properties:
 example:
   uri: /v1/number_authorisation/mt/blacklist
   numbers:
-    - 61491570156
-    - 61491570157
+    - '61491570156'
+    - '61491570157'

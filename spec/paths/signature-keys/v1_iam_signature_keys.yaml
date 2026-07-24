@@ -1,4 +1,7 @@
 get:
+  security:
+    - basic_auth: []
+    - hmac_auth: []
   tags:
     - Signature Key Management
   summary: Get signature key list
@@ -80,6 +83,9 @@ get:
             message: This feature has not been enabled in your account.
   deprecated: false
 post:
+  security:
+    - basic_auth: []
+    - hmac_auth: []
   tags:
     - Signature Key Management
   summary: Create signature key

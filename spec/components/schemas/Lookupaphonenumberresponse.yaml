@@ -32,7 +32,10 @@ properties:
     example: 46
 example:
   country_code: AU
-  phone_number: 61491570156
+  phone_number: '61491570156'
   type: mobile
   carrier:
     name: Telstra
+  result: OK
+  imsi: 24008
+  location: 46

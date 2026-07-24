@@ -1,4 +1,4 @@
-title: Addoneormorenumberstoyourbacklistrequest
+title: Addoneormorenumberstoyourblacklistrequest
 required:
   - numbers
 type: object
@@ -13,5 +13,5 @@ properties:
       http://en.wikipedia.org/wiki/E.164.
 example:
   numbers:
-    - 61491570156
-    - 61491570157
+    - '61491570156'
+    - '61491570157'

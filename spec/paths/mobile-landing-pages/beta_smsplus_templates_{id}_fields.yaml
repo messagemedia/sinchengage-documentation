@@ -4,9 +4,9 @@ get:
     - hmac_auth: []
   tags:
     - Mobile Landing Pages (beta)
-  summary: Get Templates Fields Defination
+  summary: Get Templates Fields Definition
   description: Returns a list of Template Field Definition.
-  operationId: GetTemplatesFieldsDefination
+  operationId: GetTemplatesFieldsDefinition
   parameters:
     - name: id
       in: path
@@ -22,7 +22,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../components/schemas/mobile-landing-pages/GetTemplatesFieldsDefinationresponse.yaml
+            $ref: ../../components/schemas/mobile-landing-pages/GetTemplatesFieldsDefinitionresponse.yaml
           example:
             fields:
               fontFamilyURL1:

@@ -1,4 +1,7 @@
 patch:
+  security:
+    - basic_auth: []
+    - hmac_auth: []
   tags:
     - Signature Key Management
   summary: Enable signature key
@@ -105,6 +108,9 @@ patch:
             message: Entity not found
   deprecated: false
 get:
+  security:
+    - basic_auth: []
+    - hmac_auth: []
   tags:
     - Signature Key Management
   summary: Get enabled signature key
@@ -166,21 +172,24 @@ get:
             message: Currently no key is enabled
   deprecated: false
 delete:
+  security:
+    - basic_auth: []
+    - hmac_auth: []
   tags:
     - Signature Key Management
-  summary: Disable the current enabled signature key.
+  summary: Disable the current enabled signature key
   description: >-
     Disable the current enabled signature key.
 
 
     A successful request for the ```disable the current enabled signature
-    key.``` endpoint will return no content when successful.
+    key``` endpoint will return no content when successful.
 
     If there is an enabled key, it will be disabled; and the 204 status code is
     returned.
 
     If there is no key or no enabled key, the 204 status code is also returned.
-  operationId: DisableTheCurrentEnabledSignatureKey.
+  operationId: DisableTheCurrentEnabledSignatureKey
   responses:
     '204':
       description: ''
